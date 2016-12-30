@@ -1,0 +1,614 @@
+/*
+Theme Name: The Beauty Chef
+Theme URI: https://builtbyblank.com
+Author: the Built By Blank team
+Author URI: https://builtbyblank.com/
+Description: The Beauty Chef is a custom theme.
+Version: 1.0
+License: GNU General Public License v2 or later
+Tags: custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog
+Text Domain: The Beauty Chef
+*/
+
+@import "variables";
+body{
+	color: $black;
+	font-family: $font-family_1;
+	font-size: 14px;
+	line-height: 1.714;
+}
+a,a:focus,a:hover,a:active,a:visited{
+	text-decoration: none;
+	color: $black;
+}
+h1{
+	font-family: $font-family_2;
+	font-size: 30px;
+	line-height: 1.333;
+	letter-spacing: 0.100em;
+	text-transform: uppercase;
+}
+h2{
+	font-family: $font-family_3;
+	font-size: 20px;
+	line-height: 1;
+	letter-spacing: 0.100em;
+	text-transform: uppercase;
+}
+h3{
+	font-family: $font-family_2;
+	font-size: 26px;
+	line-height: 1.384;
+}
+h4{
+	font-family: $font-family_3;
+	font-size: 16px;
+	line-height: 1.25;
+	letter-spacing: 0.100em;
+	margin: 25px 0 18px;
+	text-transform: uppercase;
+}
+h5{
+	font-family: $font-family_5;
+	font-size: 14px;
+	line-height: 1.428;
+	letter-spacing: 0.100em;
+	margin: 15px 0;
+	text-transform: uppercase;
+}
+h6{
+	font-family: $font-family_5;
+	font-size: 12px;
+	line-height: 1.6666;
+	letter-spacing: 0.100em;
+	text-transform: uppercase;
+}
+.banner-title{
+	@extend h1;
+}
+.chef-name{
+	@extend h1;
+	font-size: 40px;
+	line-height: 1.75;
+}
+.page-banner-title{
+	font-family: $font-family_5;
+}
+.entry-title{
+	position: relative;
+	margin-top: 10px;
+	span{
+		background: $white;
+		padding-right: 22px;
+	}
+	&::after {
+		background: $black none repeat scroll 0 0;
+		border-bottom: 1px solid;
+		content: "";
+		height: 1px;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		width: 100%;
+		z-index: -1;
+	}
+}
+.quote{
+	@extend h3;
+}
+.alt-heading{
+	font-family: $font-family_5;
+	font-size: 13px;
+	line-height: 1.538;
+	letter-spacing: 0.100em;
+	text-transform: uppercase;
+}
+.alt-sub-heading{
+	font-family: $font-family_4;
+	font-size: 13px;
+	font-style: italic;
+	line-height: 1.538;
+	letter-spacing: 0.100em;
+	text-transform: uppercase;
+}
+.home-sub-heading{
+	font-family: $font-family_5;
+	font-size: 14px;
+	line-height: 1.428;
+	letter-spacing: 0.300em;
+	text-transform: uppercase;
+}
+button{
+	font-family: $font-family_4;
+	font-size: 14px;
+	font-style: italic;
+	line-height: 1.428;
+	letter-spacing: 0.100em;
+}
+.link-button{
+	@extend button;
+	border: 1px solid #000;
+	padding: 10px 25px;
+	display: inline-block;	
+}
+.btn{
+	background: transparent;
+	border: 1px solid #000;
+	border-radius: 0;
+	padding: 4px 25px;
+}
+input{
+	border-radius: 0;
+	box-shadow: none;
+	&:focus{
+		outline: 0;
+	}
+	&.form-control{
+		border-radius: 0;
+		box-shadow: none;
+		border: 1px solid $light_grey;
+		height: 30px;
+		&:focus{
+			outline: 0;	
+			box-shadow: none;
+			border: 1px solid $light_grey;
+		}
+		&::-webkit-input-placeholder { 
+		  color: $black;
+		}
+		&::-moz-placeholder { 
+		  color: $black;
+		}
+		&:-ms-input-placeholder {
+		  color: $black;
+		}
+		&:-moz-placeholder { 
+		  color: $black;
+		}
+	}	
+}
+.container{
+	max-width: 1010px;
+	margin: 0 auto;
+	width: auto;
+}
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.centered{
+	float: none;
+	margin: 0 auto;
+}
+img{
+	max-width: 100%;
+}
+.no-padding{
+	padding-left: 0;
+	padding-right: 0;
+}
+.right-padding{
+	padding-right: 0;
+}
+.flex-container{
+	display: -webkit-box; 
+	display: -ms-flexbox; 
+	display: -webkit-flex; 
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+.vertically-center{
+	display: -webkit-box; 
+	display: -ms-flexbox; 
+	display: -webkit-flex; 
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+}
+/***************** Header *****************/
+header{
+	position: relative;
+	@at-root .home{
+		header{
+			margin-bottom: 25px;
+			&:after{
+				border-bottom: 1px solid $black;
+				box-sizing: border-box;
+				content: "";
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				width: 98%;
+			}
+		}
+	}
+	.logo-header{
+		position: relative;
+		.top-bar{
+			.left-bar{
+				position: absolute;
+				left: 14px;
+				top: 10px;
+				font-family: $font-family_4;
+				font-style: italic;
+			}
+			.right-bar{
+				position: absolute;
+				right: 14px;
+				top: 10px;
+				ul{
+					li{
+						display: inline-block;
+						a{
+							i{
+								&.icon-user{
+									font-family: $font-family_icon_user;
+									font-style: normal;
+									color: $black;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.logo{
+			text-align: center;
+			padding: 30px 0;
+		}
+		@at-root .social-icons{
+			position: absolute;
+			top: 60px;
+			left: 14px;
+			ul{
+				li{
+					display: block;
+					line-height: 1;
+					margin-bottom: 12px;
+					a{
+						.icon{
+							width: 16px;
+							height: 16px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.navigation-top{
+		background: $cream_grey;
+		position: absolute;
+		left: -180px;
+		margin-top: 25px;
+		transition: left 0.4s ease-in;
+		.wrap{
+			margin-left: 18px ;
+		}
+		&.active{
+			left: 0;
+			transition: left 0.4s ease;
+		}
+		.menu{
+			li{
+				margin-top: 10px;
+				line-height: 1;
+				a{
+					font-family: $font-family_5;
+					font-size: 12px;
+					text-transform: uppercase;
+					line-height: 1.583;
+					letter-spacing: 0.250em;	
+				}
+				.sub-menu{
+					padding: 0 0 0 10px;
+					li{
+						margin-top: 0;
+						a{
+							font-family: $font-family_4;
+							text-transform: lowercase;
+							letter-spacing: 0.100em;	
+						}
+						.sub-menu{
+							padding-left: 10px;
+						}
+					}
+				}
+			}
+		}
+		.close-menu{
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			margin-left: 18px;
+		}
+	 .icon.icon-angle-down {
+		display: none;
+		}
+	}
+	.top-menu {
+		left: 10px;
+		margin-top: 25px;
+		position: absolute;
+		span{
+			display: block;
+			text-transform: uppercase;
+		}
+	}
+}
+
+/**************  Main page *******************/
+.intro-section{
+	.intro-width{
+		float: right;
+		padding-right: 25px;
+		img{
+			width: 100%;
+		}
+	}
+	.intro-text{
+		clear: right;
+		padding: 90px 0; 
+		h1{
+			font-size: 32px;
+			line-height: 1.5;
+			text-transform: none;
+			letter-spacing: 0;
+			text-align: center;
+		}
+	}
+}
+#home-products{
+	.products-container{
+		background: $cream_grey;
+		padding-bottom: 40px;
+		.top-heading{
+			text-align: center;
+			padding: 35px 0 18px;
+			position: relative;
+			margin: 0 0 38px; 
+			&:after{
+				content: "";
+				position: absolute;
+				width: 50px;
+				height: 1px;
+				background: $black;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				bottom: 0;
+			}
+		}
+		.products-slider{
+			.owl-prev {
+				margin-left: 23px;	
+			}
+			.owl-next{
+				margin-right: 23px;
+			}
+			.product-item{
+				.details{
+					padding-top: 42px;
+					h5{
+						margin: 0 0 15px;
+					}
+					.product-name{
+						margin-bottom: 5px;
+					}
+				}
+			}
+		}
+	}
+	.all-products-button{
+		text-align: center;
+		margin-top: -20px;
+	}	
+}
+#home-grid{
+	padding: 100px 0;
+	.container{
+		max-width: 990px;
+	}
+	.grid-border{
+		border-top: 1px solid $black;
+		border-bottom: 1px solid $black;
+		.left-boxes{
+			padding: 0 60px 50px 30px;
+			&:after{
+				border-right: 1px solid #000;
+				content: "";
+				height: 100%;
+				left: 0;
+				position: absolute;
+				right: 27px;
+				top: 0;
+			}
+		}
+	}
+	h2{
+		margin: 45px 0 20px;
+		text-align: center;
+	}
+	.image{
+		position: relative;
+		.home-cat-name{
+			bottom: 0;
+			left: -25px;
+			position: absolute;
+			transform: translateY(-50%) rotate(-90deg);
+			transform-origin: 0 0 0;
+		}
+	}
+	.right-boxes{
+		.testimonial-slider {
+			padding: 25px 54px 10px;
+			h3{
+				margin-bottom: 40px;
+			}
+		}
+		.home-find-match{
+			position: relative;
+			.find-match-img {
+				padding: 54px 60px 0 33px;
+				position: relative;
+				.find-title{
+					bottom: 18px;
+					right: -36%;
+					position: absolute;
+					transform: translateY(-50%) rotate(-90deg);
+					transform-origin: 0 0 0;
+				}
+			}
+			&:after{
+				border-top: 1px solid #000;
+				content: "";
+				left: 0;
+				margin-left: -27px;
+				padding-right: 0;
+				position: absolute;
+				top: 0;
+				width: 106.7%;
+			}
+		}
+	}
+}
+#bottom-banner{
+	background: $cream_grey;
+	.banner-img{
+		position: relative;
+		background-repeat: no-repeat !important;
+		background-size: cover !important;
+		min-height: 355px;
+		&::after {
+			border-right: 160px solid $cream_grey;
+			border-top: 355px solid transparent;
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+	.banner-content{
+		margin: 100px 0 0;
+		.banner-text{
+			margin-top: 30px;
+			font-family: $font-family_4;
+			font-style: italic;
+		}	
+	}
+}
+/********** Common pages ***************/
+
+.entry-content{
+	padding-top: 45px;
+}
+.page-banner{
+	min-height: 270px;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;	
+}
+.about-deatail-container{
+	border-top: 1px solid $black;
+	margin-top: 30px;
+	padding-top: 25px;
+	.banner-top{
+		min-height: 295px;
+		position: relative;
+		background-size: cover !important;
+		background-repeat: no-repeat !important;		
+		h1{
+			padding-left: 40px;
+		}
+	}
+	.about-chef{
+		padding-top: 40px;
+		.chef-details{	
+			padding: 20px 0 0 20px;
+			.sub-heading{
+				text-transform: none;
+				font-size: 18px;
+				line-height: 1.6666;
+				letter-spacing: 0;
+				margin-top: 0;
+			}
+			.description{
+				-webkit-column-count: 2;
+				-moz-column-count: 2;
+				column-count: 2;
+				-webkit-column-gap: 38px;
+				-moz-column-gap: 38px;
+				column-gap: 38px;
+				padding-top: 12px;
+			}
+		}
+		.chef-image{
+			padding-left: 25px;
+		}
+	}
+}
+
+/***************  Footer ***************/
+footer{
+	@at-root .border-right{
+		border-right: 1px solid $black;
+	}
+	.footer-info{
+		padding: 85px 0;
+	}
+	#footer-menu{
+		 -webkit-column-count: 2; 
+		-moz-column-count: 2; 
+		column-count: 2;
+		padding-bottom: 30px;
+		li{
+			a{
+				font-family: $font-family_5;
+				font-size: 12px;
+				text-transform: uppercase;
+			}
+		}
+	}
+	.subscribe-box{
+		padding: 0 70px 10px;
+		.subscribe{
+			p{
+				font-family: $font-family_4;
+				font-style: italic;
+			}
+			.form-group:first-child{
+				margin-bottom: 10px;
+			}
+		}
+	}
+	.connect{
+		.social-icons{
+			position: static;
+			ul{
+				li{
+					display: inline-block;
+					margin-right: 10px;
+					&:last-child{
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+	.credits{
+		background: $cream_grey;
+		font-family: 'Didot';
+		font-style: italic;
+		font-size: 13px;
+		padding: 20px 0;		
+		text-align: center;
+		letter-spacing: 0.100em;
+		span{
+			margin: 0 10px;
+		}
+	}
+}

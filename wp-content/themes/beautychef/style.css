@@ -1,0 +1,644 @@
+@charset "UTF-8";
+/*
+Theme Name: The Beauty Chef
+Theme URI: https://builtbyblank.com
+Author: the Built By Blank team
+Author URI: https://builtbyblank.com/
+Description: The Beauty Chef is a custom theme.
+Version: 1.0
+License: GNU General Public License v2 or later
+Tags: custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready, blog
+Text Domain: The Beauty Chef
+*/
+/********** Fonts *******/
+@font-face {
+  font-family: 'ProximaNova-Light';
+  src: url("assets/fonts/ProximaNova-Light.eot");
+  src: local("Γÿ║"), url("assets/fonts/ProximaNova-Light.woff") format("woff"), url("assets/fonts/ProximaNova-Light.ttf") format("truetype"), url("assets/fonts/ProximaNova-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archer-Light';
+  src: url("assets/fonts/Archer-Light.eot");
+  src: local("Γÿ║"), url("assets/fonts/Archer-Light.woff") format("woff"), url("assets/fonts/Archer-Light.ttf") format("truetype"), url("assets/fonts/Archer-Light.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Archer-Book';
+  src: url("assets/fonts/Archer-Book.eot");
+  src: local("Γÿ║"), url("assets/fonts/Archer-Book.woff") format("woff"), url("assets/fonts/Archer-Book.ttf") format("truetype"), url("assets/fonts/Archer-Book.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nexa-Rust-Sans-Book-03';
+  src: url("assets/fonts/NexaRustSans-Book03.eot");
+  src: url("assets/fonts/NexaRustSans-Book03.eot?#iefix") format("embedded-opentype"), url("assets/fonts/NexaRustSans-Book03.woff") format("woff"), url("assets/fonts/NexaRustSans-Book03.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Didot';
+  src: url("assets/fonts/Didot-Italic.eot");
+  src: url("assets/fonts/Didot-Italic.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Didot-Italic.woff") format("woff"), url("assets/fonts/Didot-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'fontello';
+  src: url("assets/fonts/fontello.eot");
+  src: url("assets/fonts/fontello.eot") format("embedded-opentype"), url("assets/fonts/fontello.woff2") format("woff2"), url("assets/fonts/fontello.woff") format("woff"), url("assets/fonts/fontello.ttf") format("truetype"), url("assets/fonts/fontello.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*********** Colors ************/
+body {
+  color: #000000;
+  font-family: "ProximaNova-Light";
+  font-size: 14px;
+  line-height: 1.714;
+}
+
+a, a:focus, a:hover, a:active, a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+h1, .banner-title, .chef-name {
+  font-family: "Archer-Light";
+  font-size: 30px;
+  line-height: 1.333;
+  letter-spacing: 0.100em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: "Archer-Book";
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.100em;
+  text-transform: uppercase;
+}
+
+h3, .quote {
+  font-family: "Archer-Light";
+  font-size: 26px;
+  line-height: 1.384;
+}
+
+h4 {
+  font-family: "Archer-Book";
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.100em;
+  margin: 25px 0 18px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-family: "Nexa-Rust-Sans-Book-03";
+  font-size: 14px;
+  line-height: 1.428;
+  letter-spacing: 0.100em;
+  margin: 15px 0;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-family: "Nexa-Rust-Sans-Book-03";
+  font-size: 12px;
+  line-height: 1.6666;
+  letter-spacing: 0.100em;
+  text-transform: uppercase;
+}
+
+.chef-name {
+  font-size: 40px;
+  line-height: 1.75;
+}
+
+.page-banner-title {
+  font-family: "Nexa-Rust-Sans-Book-03";
+}
+
+.entry-title {
+  position: relative;
+  margin-top: 10px;
+}
+.entry-title span {
+  background: #ffffff;
+  padding-right: 22px;
+}
+.entry-title::after {
+  background: #000000 none repeat scroll 0 0;
+  border-bottom: 1px solid;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 100%;
+  z-index: -1;
+}
+
+.alt-heading {
+  font-family: "Nexa-Rust-Sans-Book-03";
+  font-size: 13px;
+  line-height: 1.538;
+  letter-spacing: 0.100em;
+  text-transform: uppercase;
+}
+
+.alt-sub-heading {
+  font-family: "Didot";
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.538;
+  letter-spacing: 0.100em;
+  text-transform: uppercase;
+}
+
+.home-sub-heading {
+  font-family: "Nexa-Rust-Sans-Book-03";
+  font-size: 14px;
+  line-height: 1.428;
+  letter-spacing: 0.300em;
+  text-transform: uppercase;
+}
+
+button, .link-button {
+  font-family: "Didot";
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.428;
+  letter-spacing: 0.100em;
+}
+
+.link-button {
+  border: 1px solid #000;
+  padding: 10px 25px;
+  display: inline-block;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 4px 25px;
+}
+
+input {
+  border-radius: 0;
+  box-shadow: none;
+}
+input:focus {
+  outline: 0;
+}
+input.form-control {
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid #ebebeb;
+  height: 30px;
+}
+input.form-control:focus {
+  outline: 0;
+  box-shadow: none;
+  border: 1px solid #ebebeb;
+}
+input.form-control::-webkit-input-placeholder {
+  color: #000000;
+}
+input.form-control::-moz-placeholder {
+  color: #000000;
+}
+input.form-control:-ms-input-placeholder {
+  color: #000000;
+}
+input.form-control:-moz-placeholder {
+  color: #000000;
+}
+
+.container {
+  max-width: 1010px;
+  margin: 0 auto;
+  width: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.centered {
+  float: none;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.right-padding {
+  padding-right: 0;
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.vertically-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/***************** Header *****************/
+header {
+  position: relative;
+}
+.home header {
+  margin-bottom: 25px;
+}
+.home header:after {
+  border-bottom: 1px solid #000000;
+  box-sizing: border-box;
+  content: "";
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 98%;
+}
+header .logo-header {
+  position: relative;
+}
+header .logo-header .top-bar .left-bar {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  font-family: "Didot";
+  font-style: italic;
+}
+header .logo-header .top-bar .right-bar {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+}
+header .logo-header .top-bar .right-bar ul li {
+  display: inline-block;
+}
+header .logo-header .top-bar .right-bar ul li a i.icon-user {
+  font-family: "fontello";
+  font-style: normal;
+  color: #000000;
+}
+header .logo-header .logo {
+  text-align: center;
+  padding: 30px 0;
+}
+.social-icons {
+  position: absolute;
+  top: 60px;
+  left: 14px;
+}
+.social-icons ul li {
+  display: block;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.social-icons ul li a .icon {
+  width: 16px;
+  height: 16px;
+}
+header .navigation-top {
+  background: #fafafa;
+  position: absolute;
+  left: -180px;
+  margin-top: 25px;
+  transition: left 0.4s ease-in;
+}
+header .navigation-top .wrap {
+  margin-left: 18px;
+}
+header .navigation-top.active {
+  left: 0;
+  transition: left 0.4s ease;
+}
+header .navigation-top .menu li {
+  margin-top: 10px;
+  line-height: 1;
+}
+header .navigation-top .menu li a {
+  font-family: "Nexa-Rust-Sans-Book-03";
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 1.583;
+  letter-spacing: 0.250em;
+}
+header .navigation-top .menu li .sub-menu {
+  padding: 0 0 0 10px;
+}
+header .navigation-top .menu li .sub-menu li {
+  margin-top: 0;
+}
+header .navigation-top .menu li .sub-menu li a {
+  font-family: "Didot";
+  text-transform: lowercase;
+  letter-spacing: 0.100em;
+}
+header .navigation-top .menu li .sub-menu li .sub-menu {
+  padding-left: 10px;
+}
+header .navigation-top .close-menu {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-left: 18px;
+}
+header .navigation-top .icon.icon-angle-down {
+  display: none;
+}
+header .top-menu {
+  left: 10px;
+  margin-top: 25px;
+  position: absolute;
+}
+header .top-menu span {
+  display: block;
+  text-transform: uppercase;
+}
+
+/**************  Main page *******************/
+.intro-section .intro-width {
+  float: right;
+  padding-right: 25px;
+}
+.intro-section .intro-width img {
+  width: 100%;
+}
+.intro-section .intro-text {
+  clear: right;
+  padding: 90px 0;
+}
+.intro-section .intro-text h1, .intro-section .intro-text .banner-title, .intro-section .intro-text .chef-name {
+  font-size: 32px;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+#home-products .products-container {
+  background: #fafafa;
+  padding-bottom: 40px;
+}
+#home-products .products-container .top-heading {
+  text-align: center;
+  padding: 35px 0 18px;
+  position: relative;
+  margin: 0 0 38px;
+}
+#home-products .products-container .top-heading:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 1px;
+  background: #000000;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0;
+}
+#home-products .products-container .products-slider .owl-prev {
+  margin-left: 23px;
+}
+#home-products .products-container .products-slider .owl-next {
+  margin-right: 23px;
+}
+#home-products .products-container .products-slider .product-item .details {
+  padding-top: 42px;
+}
+#home-products .products-container .products-slider .product-item .details h5 {
+  margin: 0 0 15px;
+}
+#home-products .products-container .products-slider .product-item .details .product-name {
+  margin-bottom: 5px;
+}
+#home-products .all-products-button {
+  text-align: center;
+  margin-top: -20px;
+}
+
+#home-grid {
+  padding: 100px 0;
+}
+#home-grid .container {
+  max-width: 990px;
+}
+#home-grid .grid-border {
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+#home-grid .grid-border .left-boxes {
+  padding: 0 60px 50px 30px;
+}
+#home-grid .grid-border .left-boxes:after {
+  border-right: 1px solid #000;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 27px;
+  top: 0;
+}
+#home-grid h2 {
+  margin: 45px 0 20px;
+  text-align: center;
+}
+#home-grid .image {
+  position: relative;
+}
+#home-grid .image .home-cat-name {
+  bottom: 0;
+  left: -25px;
+  position: absolute;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: 0 0 0;
+}
+#home-grid .right-boxes .testimonial-slider {
+  padding: 25px 54px 10px;
+}
+#home-grid .right-boxes .testimonial-slider h3, #home-grid .right-boxes .testimonial-slider .quote {
+  margin-bottom: 40px;
+}
+#home-grid .right-boxes .home-find-match {
+  position: relative;
+}
+#home-grid .right-boxes .home-find-match .find-match-img {
+  padding: 54px 60px 0 33px;
+  position: relative;
+}
+#home-grid .right-boxes .home-find-match .find-match-img .find-title {
+  bottom: 18px;
+  right: -36%;
+  position: absolute;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: 0 0 0;
+}
+#home-grid .right-boxes .home-find-match:after {
+  border-top: 1px solid #000;
+  content: "";
+  left: 0;
+  margin-left: -27px;
+  padding-right: 0;
+  position: absolute;
+  top: 0;
+  width: 106.7%;
+}
+
+#bottom-banner {
+  background: #fafafa;
+}
+#bottom-banner .banner-img {
+  position: relative;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  min-height: 355px;
+}
+#bottom-banner .banner-img::after {
+  border-right: 160px solid #fafafa;
+  border-top: 355px solid transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#bottom-banner .banner-content {
+  margin: 100px 0 0;
+}
+#bottom-banner .banner-content .banner-text {
+  margin-top: 30px;
+  font-family: "Didot";
+  font-style: italic;
+}
+
+/********** Common pages ***************/
+.entry-content {
+  padding-top: 45px;
+}
+
+.page-banner {
+  min-height: 270px;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.about-deatail-container {
+  border-top: 1px solid #000000;
+  margin-top: 30px;
+  padding-top: 25px;
+}
+.about-deatail-container .banner-top {
+  min-height: 295px;
+  position: relative;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.about-deatail-container .banner-top h1, .about-deatail-container .banner-top .banner-title, .about-deatail-container .banner-top .chef-name {
+  padding-left: 40px;
+}
+.about-deatail-container .about-chef {
+  padding-top: 40px;
+}
+.about-deatail-container .about-chef .chef-details {
+  padding: 20px 0 0 20px;
+}
+.about-deatail-container .about-chef .chef-details .sub-heading {
+  text-transform: none;
+  font-size: 18px;
+  line-height: 1.6666;
+  letter-spacing: 0;
+  margin-top: 0;
+}
+.about-deatail-container .about-chef .chef-details .description {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 38px;
+  -moz-column-gap: 38px;
+  column-gap: 38px;
+  padding-top: 12px;
+}
+.about-deatail-container .about-chef .chef-image {
+  padding-left: 25px;
+}
+
+/***************  Footer ***************/
+.border-right {
+  border-right: 1px solid #000000;
+}
+footer .footer-info {
+  padding: 85px 0;
+}
+footer #footer-menu {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  padding-bottom: 30px;
+}
+footer #footer-menu li a {
+  font-family: "Nexa-Rust-Sans-Book-03";
+  font-size: 12px;
+  text-transform: uppercase;
+}
+footer .subscribe-box {
+  padding: 0 70px 10px;
+}
+footer .subscribe-box .subscribe p {
+  font-family: "Didot";
+  font-style: italic;
+}
+footer .subscribe-box .subscribe .form-group:first-child {
+  margin-bottom: 10px;
+}
+footer .connect .social-icons {
+  position: static;
+}
+footer .connect .social-icons ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+footer .connect .social-icons ul li:last-child {
+  margin-right: 0;
+}
+footer .credits {
+  background: #fafafa;
+  font-family: 'Didot';
+  font-style: italic;
+  font-size: 13px;
+  padding: 20px 0;
+  text-align: center;
+  letter-spacing: 0.100em;
+}
+footer .credits span {
+  margin: 0 10px;
+}
