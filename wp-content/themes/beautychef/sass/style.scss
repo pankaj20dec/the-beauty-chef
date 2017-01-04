@@ -63,9 +63,10 @@ h6{
 	letter-spacing: 0.100em;
 	text-transform: uppercase;
 }
-.banner-title{
+.banner-title,.main-heading-alt{
 	@extend h1;
 }
+
 .chef-name{
 	@extend h1;
 	font-size: 40px;
@@ -77,6 +78,7 @@ h6{
 .entry-title{
 	position: relative;
 	margin-top: 10px;
+	margin-bottom: 20px;
 	span{
 		background: $white;
 		padding-right: 22px;
@@ -210,6 +212,9 @@ img{
 	-webkit-align-items: center;
 	align-items: center;
 }
+.new-pad{
+	padding: 0 10px;
+	}
 /***************** Header *****************/
 header{
 	position: relative;
@@ -507,6 +512,7 @@ header{
 .entry-content{
 	padding-top: 45px;
 }
+
 .page-banner{
 	min-height: 270px;
 	background-size: cover !important;
@@ -516,14 +522,14 @@ header{
 	border-top: 1px solid $black;
 	margin-top: 30px;
 	padding-top: 25px;
-	.banner-top{
-		min-height: 295px;
+	@at-root .banner-top{
+		min-height: 265px;
 		position: relative;
 		background-size: cover !important;
 		background-repeat: no-repeat !important;		
-		h1{
-			padding-left: 40px;
-		}
+	}
+	h1{
+		padding-left: 40px;
 	}
 	.about-chef{
 		padding-top: 40px;
@@ -549,6 +555,97 @@ header{
 		.chef-image{
 			padding-left: 25px;
 		}
+	}	
+}
+.about-container{
+	.team-list{
+		margin: 62px auto 0;
+		border-top: 1px solid $black;
+		h2{
+		&.team-heading{
+			font-family: font-family_2;
+			font-size: 34px;
+			margin: 24px 0 42px 36px;
+			}
+		}
+		.team-member-container{
+			margin: 0 -10px;
+			.team-member{
+				margin-bottom: 100px;
+				img{
+					width: 100%;
+				}	
+				h5{
+					margin: 12px 0 10px;
+				}
+				.find-more{
+					font-family: $font-family_4;
+					font-style: italic;
+					text-transform: none;
+					margin: 0;
+					a{
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}
+
+/************* Contact ************/
+.contact-container{
+	.main-heading-alt{
+		text-align: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;	
+	}
+	h5{
+		text-align: center;
+		margin: 0;
+		padding: 40px 0;	
+		a{
+			text-decoration: underline;
+		}
+	}
+	h6{
+		text-transform: none;
+	}
+	.contact-info{
+		background: $cream_grey;
+		padding: 40px 0 0;
+		.column-one{
+			p{
+				margin-bottom: 30px;
+			}
+		}
+		.column-two{
+			@extend .column-one;
+		}
+	}
+
+/************ Ninja forms ******************/
+	.wrapping{
+		position: relative;
+	}
+	nf-field:nth-child(1), nf-field:nth-child(2),nf-field:nth-child(3),nf-field:nth-child(4){
+		width: 41.666%;
+		display: block;
+	}
+	nf-field:nth-child(5){
+		width: 58.333%;
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	nf-field:nth-child(6){
+		clear: both;
+		
+	}
+	.nf-form-fields-required {
+		display: none;
 	}
 }
 

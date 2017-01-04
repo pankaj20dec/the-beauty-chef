@@ -34,7 +34,7 @@ get_header(); ?>
 	$banner_image = get_field('banner_image');
 	$banner_title = get_field('banner_title');
 ?>
-<div class="page-banner flex-contianer" style="background:url('<?php echo $banner_image['url']; ?>');">
+<div class="page-banner flex-container" style="background:url('<?php echo $banner_image['url']; ?>');">
 	<h2 class="page-banner-title">
 		<?php echo $banner_title; ?>
 	</h2>

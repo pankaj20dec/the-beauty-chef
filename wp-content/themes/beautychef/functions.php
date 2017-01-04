@@ -23,8 +23,9 @@ function beautychef_setup() {
 	add_image_size( 'beautychef-featured-image', 2000, 1200, true );
 
 	add_image_size( 'beautychef-thumbnail-avatar', 100, 100, true );
-	add_image_size( 'about-top-banner', 295, 990, true );
-	add_image_size( 'about-image', 700, 462, true );
+	add_image_size( 'about-top-banner', 990, 265, true );
+	add_image_size( 'about-image', 462, 700, true );
+	add_image_size( 'team-member-img', 230, 290, true );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(

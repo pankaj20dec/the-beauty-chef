@@ -42,6 +42,40 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
-		<?php endwhile; ?>
+		<?php endwhile;
+		wp_reset_postdata(); ?>
+		<div class="team-list container">
+			<div class="row clearfix">
+					<h2 class="team-heading"> the team </h2>
+					<div class="team-member-container">
+						<?php 
+							$query_default = new WP_Query( array(
+								 'order'        => 'ASC',
+								 'post_type'    => 'naturopaths',
+								 'post_status'  => 'publish'
+							  ));
+								if ( $query_default->have_posts() ) :
+
+									while ( $query_default->have_posts() ) : $query_default->the_post();
+									?>
+									<div class="col-md-3 new-pad">
+										<div class="team-member">
+											<?php the_post_thumbnail('team-member-img');?>
+											<h5> person name </h5>
+											<h5 class="find-more"><a href="#">find out more</a></h5>
+										</div>
+									</div>
+											
+									<?php endwhile;
+
+								else : // else; no posts
+									_e( 'Nothing published so far.');
+								endif; // endif; have_posts();
+
+							wp_reset_query();
+						?>
+				</div>
+			</div>
+		</div>
 	</div>
 <?php get_footer();

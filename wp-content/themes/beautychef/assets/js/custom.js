@@ -50,12 +50,20 @@ $(document).ready(function(){
 			 }
 		 }
 	 });
+	 
+	 //$('.nf-form-content nf-fields-wrap').find('nf-field').wrapAll('<div class="wrap"></div>');
+	 $("nf-fields-wrap nf-field").wrapAll("<div id='accordionBox' />");
+	 
 });
 $(window).load(function(){
 	beautyChef.size();
 	beautyChef.introSlider();
+	
 });
 $(window).resize(function(){
 	beautyChef.size();
 	beautyChef.introSlider();
 });
+// (function($) {
+  // $("nf-field:nth-child(1),nf-field:nth-child(2)").wrapAll('<div class="container"></div>');
+// })(jQuery);
