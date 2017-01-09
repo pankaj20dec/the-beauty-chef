@@ -252,6 +252,10 @@ img {
   padding-right: 0;
 }
 
+.no-left-padding {
+  padding-left: 0;
+}
+
 .flex-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -665,7 +669,7 @@ header .top-menu span {
   display: block;
 }
 .contact-container nf-field:nth-child(5) {
-  width: 58.333%;
+  width: 56.833%;
   display: block;
   position: absolute;
   right: 0;
@@ -676,6 +680,213 @@ header .top-menu span {
 }
 .contact-container .nf-form-fields-required {
   display: none;
+}
+.contact-container input.nf-element {
+  border: 1px solid #ebebeb;
+  height: 40px;
+  padding-left: 10px;
+}
+.contact-container textarea.nf-element {
+  border: 1px solid #ebebeb;
+  padding: 10px 0 0 10px;
+  height: 190px;
+}
+.contact-container input[type="button"].nf-element {
+  background: transparent;
+  border: 1px solid #000000;
+  padding: 0 70px;
+  font-family: "Didot";
+  font-style: italic;
+  float: right;
+  margin-top: 5px;
+}
+.contact-container .nf-element::-webkit-input-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.contact-container .nf-element::-moz-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.contact-container .nf-element:-ms-input-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.contact-container .nf-element:-moz-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.contact-container .nf-error .ninja-forms-field {
+  border: 1px solid #ebebeb;
+}
+.contact-container .ninja-forms-req-symbol, .contact-container .nf-error-msg {
+  color: #000000;
+}
+.contact-container .nf-field-container, .contact-container #ninja_forms_required_items {
+  margin-bottom: 10px;
+}
+.contact-container .nf-form-layout {
+  margin: 58px 0 35px;
+}
+
+/************** Naturopath ******************/
+.page-subtext {
+  padding: 25px 60px 70px;
+}
+.page-subtext h6 {
+  text-transform: none;
+}
+
+.naturopath-box {
+  margin-bottom: 80px;
+}
+
+.main-content .left-part .image {
+  padding-right: 20px;
+}
+.main-content .middle-part {
+  padding-right: 50px;
+}
+.main-content .middle-part h2 {
+  margin: 0;
+}
+.main-content .middle-part h6 {
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.78;
+  margin-top: 7px;
+  margin-bottom: 15px;
+}
+.main-content .right-part {
+  position: relative;
+}
+.main-content .right-part h3, .main-content .right-part .quote {
+  font-family: "Nexa-Rust-Sans-Book-03";
+  font-size: 14px;
+  line-height: 1.428;
+  letter-spacing: 0.200em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+.main-content .right-part .nf-form-fields-required, .main-content .right-part .nf-error-msg.nf-error-field-errors {
+  display: none;
+}
+.main-content .right-part .nf-error .ninja-forms-field {
+  border: 1px solid #ebebeb;
+}
+.main-content .right-part .nf-field-element input, .main-content .right-part .nf-field-element select {
+  border: 1px solid #ebebeb;
+  font-size: 13px;
+  height: 25px;
+  padding-left: 8px;
+}
+.main-content .right-part .nf-field-element textarea {
+  border: 1px solid #ebebeb;
+  font-size: 13px;
+  padding: 3px 8px;
+  height: 120px;
+  resize: none;
+}
+.main-content .right-part .nf-field-container, .main-content .right-part #ninja_forms_required_items {
+  margin-bottom: 10px;
+}
+.main-content .right-part .nf-element::-webkit-input-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.main-content .right-part .nf-element::-moz-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.main-content .right-part .nf-element:-ms-input-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.main-content .right-part .nf-element:-moz-placeholder {
+  color: #000000;
+  opacity: 1;
+}
+.main-content .right-part .ninja-forms-req-symbol, .main-content .right-part .nf-error-msg {
+  color: #000000;
+}
+.main-content .right-part .ninja-forms-field[type="button"] {
+  background: transparent;
+  border: 1px solid #000000;
+  font-family: "Didot";
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.428;
+  letter-spacing: 0.100em;
+  margin-bottom: 0;
+  width: 100%;
+  height: 25px;
+  text-transform: lowercase;
+}
+.main-content .right-part .nf-field-container.textarea-container {
+  margin-bottom: 8px;
+}
+.main-content .right-part .submit-container {
+  margin-bottom: 0;
+}
+.main-content .right-part::before {
+  border-left: 1px solid #000;
+  content: "";
+  height: 100%;
+  left: -27px;
+  position: absolute;
+}
+
+/************** Press page ****************/
+.press-container {
+  margin-top: 95px;
+}
+.press-container .press-categories h6 {
+  margin-top: 0;
+}
+.press-container .press-categories .alt-sub-heading {
+  text-transform: none;
+}
+.press-container .press-categories .alt-sub-heading li {
+  margin-bottom: 8px;
+}
+.press-container .press-categories .alt-sub-heading li.active a {
+  text-decoration: underline;
+}
+.press-container .press-box {
+  display: inline-block;
+  margin-right: 40px;
+  margin-bottom: 75px;
+}
+.press-container .press-box .press-content {
+  text-align: center;
+}
+.press-container .press-box .press-content h5 {
+  margin-bottom: 20px;
+}
+.press-container .press-box .press-content .press-image {
+  position: relative;
+}
+.press-container .press-box .press-content .press-image .cat-name {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: 8px;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+.press-container .press-box .press-content .press-image .cat-name .alt-sub-heading {
+  text-transform: none;
+}
+.press-container .press-box .press-content h6 {
+  font-size: 14px;
+  text-transform: none;
+}
+.press-container .press-box .press-content h6 a {
+  text-decoration: underline;
+}
+.press-container .press-box.last-press {
+  margin-right: 0;
 }
 
 /***************  Footer ***************/

@@ -194,6 +194,9 @@ img{
 .right-padding{
 	padding-right: 0;
 }
+.no-left-padding{
+	padding-left: 0;
+}
 .flex-container{
 	display: -webkit-box; 
 	display: -ms-flexbox; 
@@ -634,7 +637,7 @@ header{
 		display: block;
 	}
 	nf-field:nth-child(5){
-		width: 58.333%;
+		width: 56.833%;
 		display: block;
 		position: absolute;
 		right: 0;
@@ -647,8 +650,220 @@ header{
 	.nf-form-fields-required {
 		display: none;
 	}
+	input.nf-element{
+		border: 1px solid $light_grey;
+		height: 40px;
+		padding-left: 10px; 
+	}
+	textarea.nf-element{
+		border: 1px solid $light_grey;
+		padding: 10px 0 0 10px;
+		height: 190px;	
+	}
+	input[type="button"].nf-element{
+		background: transparent;
+		border: 1px solid $black;
+		padding: 0 70px;
+		font-family: $font-family_4;
+		font-style: italic;
+		float: right;
+		margin-top: 5px;
+	}
+	.nf-element::-webkit-input-placeholder { 
+		color: $black;
+		opacity: 1;
+	}
+	.nf-element::-moz-placeholder { 
+		color: $black;
+		opacity: 1;
+	}
+	.nf-element:-ms-input-placeholder {
+		color: $black;
+		opacity: 1;
+	}
+	.nf-element:-moz-placeholder { 
+		color: $black;
+		opacity: 1;
+	}
+	.nf-error .ninja-forms-field{
+	    border: 1px solid $light_grey;
+	}
+	.ninja-forms-req-symbol, .nf-error-msg{
+		color: $black;
+	}
+	.nf-field-container, #ninja_forms_required_items {
+		margin-bottom: 10px;
+	}
+	.nf-form-layout {
+		margin: 58px 0 35px;
+	}
 }
 
+/************** Naturopath ******************/
+.page-subtext{
+	padding: 25px 60px 70px;
+	h6{
+		text-transform: none;
+	}
+}
+.naturopath-box{
+	margin-bottom: 80px;
+}
+.main-content{
+	.left-part{
+		.image{
+			padding-right: 20px;
+		}
+	}
+	.middle-part{
+		padding-right: 50px;
+		h2{
+			margin: 0;
+		}
+		h6{
+			text-transform: none;
+			font-size: 14px;
+			line-height: 1.78;
+			margin-top: 7px;	
+			margin-bottom: 15px;
+		}
+	}
+	.right-part{
+		position: relative;
+		h3{
+			font-family: $font-family_5;
+			font-size: 14px;
+			line-height: 1.428;
+			letter-spacing: 0.200em;
+			text-transform: uppercase;
+			margin: 0 0 20px;
+		}
+		.nf-form-fields-required,.nf-error-msg.nf-error-field-errors{
+			display: none;
+		}
+		.nf-error .ninja-forms-field{
+			border: 1px solid $light_grey;
+		}
+		.nf-field-element input, .nf-field-element select{
+			border: 1px solid $light_grey;
+			font-size: 13px;
+			height: 25px;
+			padding-left: 8px; 
+		}
+		.nf-field-element textarea{
+			border: 1px solid $light_grey;
+			font-size: 13px;
+			padding: 3px 8px; 
+			height: 120px;
+			resize: none;
+		}
+		.nf-field-container, #ninja_forms_required_items{
+			margin-bottom: 10px;
+		}
+		.nf-element::-webkit-input-placeholder { 
+		color: $black;
+		opacity: 1;
+		}
+		.nf-element::-moz-placeholder { 
+			color: $black;
+			opacity: 1;
+		}
+		.nf-element:-ms-input-placeholder {
+			color: $black;
+			opacity: 1;
+		}
+		.nf-element:-moz-placeholder { 
+			color: $black;
+			opacity: 1;
+		}
+		.ninja-forms-req-symbol, .nf-error-msg{
+			color: $black
+		}
+		.ninja-forms-field[type="button"]{
+			background: transparent;	
+			border: 1px solid $black;
+			font-family: $font-family_4;
+			font-size: 14px;
+			font-style: italic;
+			line-height: 1.428;
+			letter-spacing: 0.100em;
+			margin-bottom: 0;
+			width: 100%;
+			height: 25px;
+			text-transform: lowercase;
+		}
+		.nf-field-container.textarea-container {
+			margin-bottom: 8px;
+		}
+		.submit-container{
+			margin-bottom: 0;
+		}
+		&::before {
+			border-left: 1px solid #000;
+			content: "";
+			height: 100%;
+			left: -27px;
+			position: absolute;
+		}
+	}
+}
+
+/************** Press page ****************/
+.press-container{
+	margin-top: 95px;
+	.press-categories{
+		h6{
+			margin-top: 0;
+		}
+		.alt-sub-heading{
+			text-transform: none;
+			li{
+				margin-bottom: 8px;
+				&.active{
+					a{
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+	.press-box{
+		display: inline-block;
+		margin-right: 40px;
+		margin-bottom: 75px;
+		.press-content{
+			text-align: center;
+			h5{
+				margin-bottom: 20px;
+			}
+			.press-image{
+				position: relative;
+				.cat-name{
+					position: absolute;
+					top: 50%;
+					left: 100%;	
+					margin-left: 8px;
+					-webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+					-moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+					transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+					.alt-sub-heading{
+						text-transform: none;
+					}
+				}
+			}
+			h6{
+				font-size: 14px;
+				text-transform: none;
+				a{
+					text-decoration: underline;
+				}
+			}
+		}
+		&.last-press{
+			margin-right: 0;
+		}
+	}
+}
 /***************  Footer ***************/
 footer{
 	@at-root .border-right{

@@ -26,6 +26,8 @@ function beautychef_setup() {
 	add_image_size( 'about-top-banner', 990, 265, true );
 	add_image_size( 'about-image', 462, 700, true );
 	add_image_size( 'team-member-img', 230, 290, true );
+	add_image_size( 'naturopath-img', 202, 300, true );		
+	add_image_size( 'press-img', 237, 319, true );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(

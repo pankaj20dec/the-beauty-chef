@@ -83,7 +83,36 @@ function naturopaths_post() {
 }
 add_action( 'init', 'naturopaths_post' );
 
-// create a new taxonomy
+// Press Custom Post
+function press_post() {
+	register_post_type( 'press',
+		array(
+				'labels' 			  => array(
+				'name' 				  => __( 'Press' ),
+				'singular_name'       => __( 'Press' ),
+				'menu_name' 		  => __( 'Press', 'beautychef' ),
+				'parent_item_colon'   => __( 'Parent Press', 'beautychef' ),
+				'all_items'			  => __( 'All Press', 'beautychef' ),
+				'view_item' 		  => __( 'View Press', 'beautychef' ),
+				'add_new_item' 		  => __( 'Add New Press', 'beautychef' ),
+				'add_new'     	 	  => __( 'Add New', 'beautychef' ),
+				'edit_item'           => __( 'Edit Press', 'beautychef' ),
+				'update_item'         => __( 'Update Press', 'beautychef' ),
+				'search_items'        => __( 'Search Press', 'beautychef' ),
+				'not_found'           => __( 'Not Found', 'beautychef' ),
+				'not_found_in_trash'  => __( 'Not found in Trash', 'beautychef' ),
+			),
+			'public' 		=> true,
+			'has_archive'   => true,
+			'rewrite' 		=> array('slug' => 'press'),
+			'supports'  	=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		)
+	);
+}
+add_action( 'init', 'press_post' );
+
+
+// Recipe a new taxonomy
 function recipes_init() {
 	register_taxonomy(
 		'recipes_cat',
@@ -96,3 +125,18 @@ function recipes_init() {
 	);
 }
 add_action( 'init', 'recipes_init' );
+
+
+// Press a new taxonomy
+function press_init() {
+	register_taxonomy(
+		'press_cat',
+		'press',
+		array(
+			'label' => __( 'Press Categories' ),
+			'rewrite' => array( 'slug' => 'press_cat' ),
+			'hierarchical' => true,
+		)
+	);
+}
+add_action( 'init', 'press_init' );
