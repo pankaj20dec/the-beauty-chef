@@ -864,6 +864,10 @@ header{
 		}
 	}
 }
+
+.paginate{
+	display: none;
+}
 /***************  Footer ***************/
 footer{
 	@at-root .border-right{

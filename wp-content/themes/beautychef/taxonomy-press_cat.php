@@ -23,7 +23,7 @@ get_header(); ?>
 					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
-					<ul>
+					<ul class="press-cat-ul">
 					<?php 
 							if ( have_posts() ) :
 								
@@ -52,11 +52,7 @@ get_header(); ?>
 										</div>
 									</li>
 								<?php endwhile;
-								the_posts_pagination( array(
-									'mid_size'  => 2,
-									'prev_text' => __( 'Back', 'textdomain' ),
-									'next_text' => __( 'Onward', 'textdomain' ),
-								) );
+									
 													
 							else : 
 								_e( 'Nothing published so far.');
@@ -64,6 +60,16 @@ get_header(); ?>
 						wp_reset_query();
 						?>
 					</ul>
+					<div class="category-loadmore">
+						<?php
+							if( get_next_posts_link() ) :
+								next_posts_link( 'See more', 0 );
+							endif;  
+						?>
+					</div>
+					<div class="paginate">
+						<?php the_posts_pagination( array( 'mid_size' => 2 ) ); ?>
+					</div>
 				</div>
 			</div>	
 		</div>

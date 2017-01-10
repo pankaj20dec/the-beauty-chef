@@ -51,45 +51,83 @@ $(document).ready(function(){
 		 }
 	 });
 	 
-	 if($('.next-prev li a').find('.next-post')){
-        //console.log('have next');
-         var pageLength = $('.page-numbers li').length;
-		 //console.log(pageLength);		
-         var pageNum = 2;
-             $('.next-post').click(function(e){
-                 e.preventDefault();
-                 var numPlus = pageNum++;
-                 if( numPlus <= pageLength){
-                     var href = $(this).attr('href');
-                     var targetLink = href.split("/");
-					// Substring length
-                     var tLength = targetLink.length;
-					 // change page value
-                     targetLink[tLength - 2] = numPlus;
-					// New link	with new page
-                     var newTarget = targetLink.join('/');
-					 console.log('newTarget:'+ newTarget);
-                      $.ajax({
-                        url : newTarget,
-                        type: 'POST',
-                        dataType: "html",
-                        error: function(response){
-                        },
-                        success: function(response){
-                             console.log(response);
-							 var result = $('<div />').append(response).find('.press-ul').html();
-                            $('.press-ul').append(result);
-                        }
-                    });   
-                    
-                }else{
-					$('.next-prev').html("<li>no more press</li>");
-				}
-        });
-    }
-	 var total = $('.nav-links').find('a').length;
-	 console.log(total);
-	 
+	 if($('.press-ul').length){
+		 if($('.next-prev li a').find('.next-post')){
+			//console.log('have next');
+			 var pageLength = $('.page-numbers li').length;
+			 //console.log(pageLength);		
+			 var pageNum = 2;
+				 $('.next-prev .next-post').click(function(e){
+					 e.preventDefault();
+					 var numPlus = pageNum++;
+					 if( numPlus <= pageLength){
+						 var href = $(this).attr('href');
+						 var targetLink = href.split("/");
+						// Substring length
+						 var tLength = targetLink.length;
+						 // change page value
+						 targetLink[tLength - 2] = numPlus;
+						// New link	with new page
+						 var newTarget = targetLink.join('/');
+						 console.log('newTarget:'+ newTarget);
+						  $.ajax({
+							url : newTarget,
+							type: 'POST',
+							dataType: "html",
+							error: function(response){
+							},
+							success: function(response){
+								 console.log(response);
+								 var result = $('<div />').append(response).find('.press-ul').html();
+								$('.press-ul').append(result).hide().fadeIn(300);
+							}
+						});   
+						
+					}else{
+						$('.next-prev').html("<li>no more press</li>");
+					}
+			});
+		}
+	}
+		
+	// category filter load more	
+	 if($('.press-cat-ul').length){
+		  if($('.category-loadmore li a').find('.next-post')){
+			 var pageLength = $('.nav-links a').length;
+			 console.log(pageLength);		
+			 var pageNum = 2;
+				 $('.category-loadmore .next-post').click(function(e){
+					 e.preventDefault();
+					 var numPlus = pageNum++;
+					 if( numPlus <= pageLength){
+						 var href = $(this).attr('href');
+						 var targetLink = href.split("/");
+						// Substring length
+						 var tLength = targetLink.length;
+						 // change page value
+						 targetLink[tLength - 2] = numPlus;
+						// New link	with new page
+						 var newTarget = targetLink.join('/');
+						 console.log('newTarget:'+ newTarget);
+						  $.ajax({
+							url : newTarget,
+							type: 'POST',
+							dataType: "html",
+							error: function(response){
+							},
+							success: function(response){
+								 console.log(response);
+								 var result = $('<div />').append(response).find('.press-cat-ul').html();
+								$('.press-cat-ul').append(result).hide().fadeIn(300);
+							}
+						});   
+						
+					}else{
+						$('.category-loadmore .next-post').html("no more press");
+					}
+			});
+		}
+	 }
 });
 $(window).load(function(){
 	beautyChef.size();

@@ -888,6 +888,10 @@ header .top-menu span {
   margin-right: 0;
 }
 
+.paginate {
+  display: none;
+}
+
 /***************  Footer ***************/
 .border-right {
   border-right: 1px solid #000000;
