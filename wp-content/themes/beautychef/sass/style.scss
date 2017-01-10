@@ -829,8 +829,8 @@ header{
 	}
 	.press-box{
 		display: inline-block;
-		margin-right: 40px;
-		margin-bottom: 75px;
+		margin: 0 40px 75px 0;
+		
 		.press-content{
 			text-align: center;
 			h5{
@@ -859,7 +859,7 @@ header{
 				}
 			}
 		}
-		&.last-press{
+		&:nth-child(3n){
 			margin-right: 0;
 		}
 	}

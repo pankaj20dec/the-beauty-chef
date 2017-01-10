@@ -51,19 +51,59 @@ $(document).ready(function(){
 		 }
 	 });
 	 
-	 //$('.nf-form-content nf-fields-wrap').find('nf-field').wrapAll('<div class="wrap"></div>');
-	 $("nf-fields-wrap nf-field").wrapAll("<div id='accordionBox' />");
+	 if($('.next-prev li a').find('.next-post')){
+        //console.log('have next');
+         var pageLength = $('.page-numbers li').length;
+		 //console.log(pageLength);		
+         var pageNum = 2;
+             $('.next-post').click(function(e){
+                 e.preventDefault();
+                 var numPlus = pageNum++;
+                 if( numPlus <= pageLength){
+                     var href = $(this).attr('href');
+                     var targetLink = href.split("/");
+					// Substring length
+                     var tLength = targetLink.length;
+					 // change page value
+                     targetLink[tLength - 2] = numPlus;
+					// New link	with new page
+                     var newTarget = targetLink.join('/');
+					 console.log('newTarget:'+ newTarget);
+                      $.ajax({
+                        url : newTarget,
+                        type: 'POST',
+                        dataType: "html",
+                        error: function(response){
+                        },
+                        success: function(response){
+                             console.log(response);
+							 var result = $('<div />').append(response).find('.press-ul').html();
+                            $('.press-ul').append(result);
+                        }
+                    });   
+                    
+                }else{
+					$('.next-prev').html("<li>no more press</li>");
+				}
+        });
+    }
+	 var total = $('.nav-links').find('a').length;
+	 console.log(total);
 	 
 });
 $(window).load(function(){
 	beautyChef.size();
 	beautyChef.introSlider();
 	
+	$('.press-cat li').each(function(){
+		if(window.location.href.indexOf($(this).find('a').attr('href'))> -1)
+		{
+			$(this).addClass('active').siblings().removeClass('active');
+		}
+	});
+	
 });
 $(window).resize(function(){
 	beautyChef.size();
 	beautyChef.introSlider();
 });
-// (function($) {
-  // $("nf-field:nth-child(1),nf-field:nth-child(2)").wrapAll('<div class="container"></div>');
-// })(jQuery);

@@ -854,8 +854,7 @@ header .top-menu span {
 }
 .press-container .press-box {
   display: inline-block;
-  margin-right: 40px;
-  margin-bottom: 75px;
+  margin: 0 40px 75px 0;
 }
 .press-container .press-box .press-content {
   text-align: center;
@@ -885,7 +884,7 @@ header .top-menu span {
 .press-container .press-box .press-content h6 a {
   text-decoration: underline;
 }
-.press-container .press-box.last-press {
+.press-container .press-box:nth-child(3n) {
   margin-right: 0;
 }
 

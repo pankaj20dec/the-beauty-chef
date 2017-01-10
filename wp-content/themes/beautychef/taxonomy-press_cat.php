@@ -1,9 +1,5 @@
-<?php 
-/*
- * Template Name: Press Page
- */
-get_header(); 
-?>
+<?php
+get_header(); ?>
 	<div class="container">
 		<h1 class="entry-title"><span><?php echo the_title(); ?></span></h1>
 		<div class="press-container">
@@ -27,16 +23,11 @@ get_header();
 					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
-					<ul class="press-ul">
+					<ul>
 					<?php 
-						$query = new WP_Query( array(
-							 'order'        => 'ASC',
-							 'post_type'    => 'press',
-							 'posts_per_page'  => 2,
-							 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
-						  ));
-							if ( $query->have_posts() ) :
-								while ( $query->have_posts() ) : $query->the_post();
+							if ( have_posts() ) :
+								
+								while ( have_posts() ) : the_post();
 								$date = get_field('date');
 								$article_url = get_field('article_url');
 								?>
@@ -61,28 +52,22 @@ get_header();
 										</div>
 									</li>
 								<?php endwhile;
+								the_posts_pagination( array(
+									'mid_size'  => 2,
+									'prev_text' => __( 'Back', 'textdomain' ),
+									'next_text' => __( 'Onward', 'textdomain' ),
+								) );
+													
 							else : 
 								_e( 'Nothing published so far.');
 							endif; 
 						wp_reset_query();
 						?>
 					</ul>
-					<?php 
-					if (  $query->max_num_pages > 1 ) : ?>
-						<div class="view-more-container">
-							<ul class="next-prev">
-								<li><?php next_posts_link( 'Load more', $query->max_num_pages ); ?></li>
-							</ul>
-						</div>
-					<?php endif;
-					?>
 				</div>
 			</div>	
 		</div>
 	</div>
- 
 <?php 
-	if (function_exists("pagination")) {
-		pagination($query->max_num_pages);
-	} 
+
 get_footer();
