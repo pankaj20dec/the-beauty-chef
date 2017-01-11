@@ -24,6 +24,7 @@ function beautychef_setup() {
 
 	add_image_size( 'beautychef-thumbnail-avatar', 100, 100, true );
 	add_image_size( 'about-top-banner', 990, 265, true );
+	add_image_size( 'top-banner', 990, 265, true );
 	add_image_size( 'about-image', 462, 700, true );
 	add_image_size( 'team-member-img', 230, 290, true );
 	add_image_size( 'naturopath-img', 202, 300, true );		
@@ -391,6 +392,7 @@ function beautychef_scripts() {
 	wp_enqueue_script( 'jquery-bootstrap', get_theme_file_uri( '/assets/js/bootstrap.min.js' ), array(), true );
 	wp_enqueue_script( 'jquery-bxslider', get_theme_file_uri( '/assets/js/bxslider.min.js' ), array(), true );
 	wp_enqueue_script( 'jquery-owl-carousel', get_theme_file_uri( '/assets/js/owl.carousel.min.js' ), array(), true );
+	wp_enqueue_script('jquery-masonry');
 	wp_enqueue_script( 'jquery-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), true );
 
 	wp_localize_script( 'beautychef-skip-link-focus-fix', 'beautychefScreenReaderText', $beautychef_l10n );

@@ -13,8 +13,9 @@
  */
 
 ?>
-
+<div class="scroll-top"><a href="#" class="back-top">Back to Top</a></div>
 </div><!-- #content -->
+</div>
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="footer-info container">
 				<div class="nav-continer">
@@ -65,7 +66,6 @@
 				</div>
 			</div>
 		</footer><!-- #colophon -->
-	</div><!-- .site-content-contain -->
 </div><!-- #page -->
 <?php wp_footer(); ?>
 </body>

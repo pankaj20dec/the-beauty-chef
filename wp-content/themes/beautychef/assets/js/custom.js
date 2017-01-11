@@ -84,7 +84,7 @@ $(document).ready(function(){
 						});   
 						
 					}else{
-						$('.next-prev').html("<li>no more press</li>");
+						$('.next-prev').html("<li class='no-more'>no more press</li>");
 					}
 			});
 		}
@@ -123,11 +123,19 @@ $(document).ready(function(){
 						});   
 						
 					}else{
-						$('.category-loadmore .next-post').html("no more press");
+						$('.category-loadmore').html("<p class='no-more'>no more press</p>");
 					}
 			});
 		}
 	 }
+	 // Scroll Top click event
+	 $('.scroll-top a').click(function(e){
+		 e.preventDefault();
+		 var body = $('html, body');
+		 body.stop().animate({
+			 scrollTop: 0
+			 }, 500, 'swing');
+	 })
 });
 $(window).load(function(){
 	beautyChef.size();
@@ -139,9 +147,22 @@ $(window).load(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 		}
 	});
-	
+	$('.testimonial-ul').masonry({
+	  itemSelector: '.grid-item',
+	  columnWidth: '.grid-sizer',
+	});
 });
 $(window).resize(function(){
 	beautyChef.size();
 	beautyChef.introSlider();
+});
+
+$(window).scroll(function(){
+	var docHeight = $('.site-content-contain').height();
+	var sc = $(window).scrollTop() + 300;
+	if(sc > docHeight){
+		$('.scroll-top').fadeIn();
+	}else{
+		$('.scroll-top').fadeOut();
+	}
 });

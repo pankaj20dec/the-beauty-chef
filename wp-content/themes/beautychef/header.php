@@ -55,7 +55,7 @@
 		</div>
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
 			<div class="navigation-top">
-				<a href="javascript:void(0);" class="close-menu">Close Menu</a>
+				<a href="javascript:void(0);" class="close-menu">&times;</a>
 				<div class="wrap">
 					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
 				</div><!-- .wrap -->

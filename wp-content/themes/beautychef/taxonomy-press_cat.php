@@ -47,7 +47,7 @@ get_header(); ?>
 												</div>
 											</div>
 											<h5><?php the_title(); ?><br/>
-											<?php echo date("F y", strtotime($date)); ?></h5>
+											<?php if(!empty($date)){ echo date("F d", strtotime($date));} ?></h5>
 											 <h6 class="alt-sub-heading"><a href="<?php echo $article_url ?>">read article</a></h6>
 										</div>
 									</li>

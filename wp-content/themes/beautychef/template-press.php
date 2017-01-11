@@ -32,7 +32,7 @@ get_header();
 						$query = new WP_Query( array(
 							 'order'        => 'ASC',
 							 'post_type'    => 'press',
-							 'posts_per_page'  => 2,
+							 'posts_per_page'  => 4,
 							 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
 						  ));
 							if ( $query->have_posts() ) :
@@ -56,7 +56,7 @@ get_header();
 												</div>
 											</div>
 											<h5><?php the_title(); ?><br/>
-											<?php echo date("F y", strtotime($date)); ?></h5>
+											<?php if(!empty($date)){ echo date("F d", strtotime($date));} ?></h5>
 											 <h6 class="alt-sub-heading"><a href="<?php echo $article_url ?>">read article</a></h6>
 										</div>
 									</li>
@@ -71,7 +71,7 @@ get_header();
 					if (  $query->max_num_pages > 1 ) : ?>
 						<div class="view-more-container">
 							<ul class="next-prev">
-								<li><?php next_posts_link( 'Load more', $query->max_num_pages ); ?></li>
+								<li><?php next_posts_link( 'See more', $query->max_num_pages ); ?></li>
 							</ul>
 						</div>
 					<?php endif;

@@ -283,6 +283,7 @@ img {
 /***************** Header *****************/
 header {
   position: relative;
+  z-index: 999;
 }
 .home header {
   margin-bottom: 25px;
@@ -344,6 +345,7 @@ header .navigation-top {
   position: absolute;
   left: -180px;
   margin-top: 25px;
+  padding: 25px 25px 15px 0;
   transition: left 0.4s ease-in;
 }
 header .navigation-top .wrap {
@@ -364,6 +366,12 @@ header .navigation-top .menu li a {
   line-height: 1.583;
   letter-spacing: 0.250em;
 }
+header .navigation-top .menu li a:hover {
+  text-decoration: underline;
+}
+header .navigation-top .menu li.current-menu-item a {
+  text-decoration: underline;
+}
 header .navigation-top .menu li .sub-menu {
   padding: 0 0 0 10px;
 }
@@ -379,9 +387,11 @@ header .navigation-top .menu li .sub-menu li .sub-menu {
   padding-left: 10px;
 }
 header .navigation-top .close-menu {
+  font-size: 30px;
+  position: absolute;
+  right: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-left: 18px;
+  top: -5px;
 }
 header .navigation-top .icon.icon-angle-down {
   display: none;
@@ -838,7 +848,7 @@ header .top-menu span {
 
 /************** Press page ****************/
 .press-container {
-  margin-top: 95px;
+  margin: 95px 0 65px;
 }
 .press-container .press-categories h6 {
   margin-top: 0;
@@ -888,8 +898,97 @@ header .top-menu span {
   margin-right: 0;
 }
 
-.paginate {
+.paginate, .pagination {
   display: none;
+}
+
+.next-prev, .category-loadmore {
+  text-align: center;
+}
+
+.next-post {
+  position: relative;
+  font-family: "Didot";
+  letter-spacing: 0.100em;
+  line-height: 1.667;
+  text-transform: lowercase;
+  height: 60px;
+  display: inline-block;
+}
+.next-post:after {
+  background: url("assets/images/arrow-down.png") no-repeat scroll 0 0;
+  content: "";
+  height: 25px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 30px;
+  width: 11px;
+}
+
+.no-more {
+  font-family: "Didot";
+  letter-spacing: 0.100em;
+  line-height: 1.667;
+  text-transform: lowercase;
+}
+
+.site-content {
+  position: relative;
+}
+
+.scroll-top {
+  display: none;
+  position: fixed;
+  bottom: 150px;
+  right: 20px;
+}
+.scroll-top a.back-top {
+  font-family: "Didot";
+  letter-spacing: 0.100em;
+  line-height: 1.667;
+  text-transform: lowercase;
+  position: relative;
+  display: inline-block;
+  padding-top: 30px;
+}
+.scroll-top a.back-top:before {
+  background: url("assets/images/arrow-up.png") no-repeat scroll 0 0;
+  content: "";
+  height: 25px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0px;
+  width: 11px;
+}
+
+.sub-heading {
+  margin: 70px 0;
+  text-align: center;
+}
+.sub-heading h6 {
+  text-transform: none;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 50%;
+  margin-bottom: 55px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.grid-sizer {
+  margin: 0;
+}
+
+.other-text {
+  padding-left: 12px;
 }
 
 /***************  Footer ***************/
