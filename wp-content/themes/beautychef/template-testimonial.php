@@ -47,6 +47,9 @@ $sub_heading = get_field('sub_heading');
 					<?php 
 					if (  $query->max_num_pages > 1 ) : ?>
 						<div class="view-more-container">
+							<div class="loader-img" style="display: none;text-align: center;">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ring.svg" alt="Loading" />
+							</div>
 							<ul class="next-prev">
 								<li><?php next_posts_link( 'See more', $query->max_num_pages ); ?></li>
 							</ul>

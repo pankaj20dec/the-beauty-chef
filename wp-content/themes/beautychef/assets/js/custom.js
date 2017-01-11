@@ -15,6 +15,10 @@ beautyChef = {
 $(document).ready(function(){
 	beautyChef.size();
 	beautyChef.introSlider();
+	$('.testimonial-ul').masonry({
+	  itemSelector: '.grid-item',
+	  columnWidth: '.grid-sizer',
+	});
 	$('.top-menu a').click(function(){
 		$('.navigation-top').addClass('active');	
 	});
@@ -128,6 +132,47 @@ $(document).ready(function(){
 			});
 		}
 	 }
+	 
+	 if($('.testimonial-ul').length){
+		 if($('.next-prev li a').find('.next-post')){
+			//console.log('have next');
+			 var pageLength = $('.page-numbers li').length;
+			 //console.log(pageLength);		
+			 var pageNum = 2;
+				 $('.next-prev .next-post').click(function(e){
+					 e.preventDefault();
+					 var numPlus = pageNum++;
+					 if( numPlus <= pageLength){
+						 var href = $(this).attr('href');
+						 var targetLink = href.split("/");
+						// Substring length
+						 var tLength = targetLink.length;
+						 // change page value
+						 targetLink[tLength - 2] = numPlus;
+						// New link	with new page
+						 var newTarget = targetLink.join('/');
+						 console.log('newTarget:'+ newTarget);
+						 $('.loader-img').show();
+						  $.ajax({
+							url : newTarget,
+							type: 'POST',
+							dataType: "html",
+							error: function(response){
+							},
+							success: function(response){
+								 console.log(response);
+								 var result = $('<div />').append(response).find('.testimonial-ul').html();
+								$('.testimonial-ul').append(result).hide().fadeIn(400).masonry('reload');
+								$('.loader-img').hide();
+							}
+						});   
+						
+					}else{
+						$('.next-prev').html("<li class='no-more'>no more testimonials</li>");
+					}
+			});
+		}
+	}
 	 // Scroll Top click event
 	 $('.scroll-top a').click(function(e){
 		 e.preventDefault();
@@ -147,10 +192,7 @@ $(window).load(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 		}
 	});
-	$('.testimonial-ul').masonry({
-	  itemSelector: '.grid-item',
-	  columnWidth: '.grid-sizer',
-	});
+	
 });
 $(window).resize(function(){
 	beautyChef.size();
