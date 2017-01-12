@@ -19,10 +19,18 @@ get_header();
 							) ); 
 							foreach($terms as $term){
 								$term_get = get_term_link($term);
-								echo '<li><a href="'.$term_get.'">'.$term->name.'</a></li>';
+								$term_slug = $term->slug;
+								echo '<li><a href="#'.$term_slug.'">'.$term->name.'</a></li>';
 							}
 							?>
 						</ul>
+						<div class="search">
+							<form class="search" action="<?php echo home_url( '/' ); ?>">
+							  <input type="search" name="s" placeholder="Search&hellip;">
+							  <input type="submit" value="Search">
+							  <input type="hidden" name="post_type" value="faqs">
+							</form>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
@@ -45,7 +53,7 @@ get_header();
 							),
 						 );
 						?>
-						<div class="category-posts">
+						<div class="category-posts" id="<?php echo $custom_term->slug; ?>">
 							<?php
 							 $loop = new WP_Query($args);
 							 if($loop->have_posts()) {?>

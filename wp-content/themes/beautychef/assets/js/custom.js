@@ -173,14 +173,23 @@ $(document).ready(function(){
 			});
 		}
 	}
-	 // Scroll Top click event
-	 $('.scroll-top a').click(function(e){
-		 e.preventDefault();
-		 var body = $('html, body');
-		 body.stop().animate({
-			 scrollTop: 0
-			 }, 500, 'swing');
-	 })
+	// Scroll Top click event
+	$('.scroll-top a').click(function(e){
+		e.preventDefault();
+		var body = $('html, body');
+		body.stop().animate({
+			scrollTop: 0
+			}, 500, 'swing');
+	 });
+	 $('.faq-cat li a').click(function(e){
+		  e.preventDefault();
+		  var href = $(this).attr('href');
+		  var $href = $(href);
+		  $(this).parent().addClass('active');
+		  $(this).parent().siblings().removeClass('active');
+		  $href.prependTo($('.faq-ul')).hide().fadeIn(600);
+	 });
+	 
 });
 $(window).load(function(){
 	beautyChef.size();

@@ -971,7 +971,12 @@ header{
 			margin-bottom: 5px;
 			a{
 				text-transform: none;
-			}	
+			}
+			&.active{
+				a{
+					text-decoration: underline;
+				}
+			}		
 		}
 	}
 }

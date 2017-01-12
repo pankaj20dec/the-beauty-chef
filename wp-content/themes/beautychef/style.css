@@ -998,6 +998,9 @@ header .top-menu span {
 .faq-categories .faq-cat li a {
   text-transform: none;
 }
+.faq-categories .faq-cat li.active a {
+  text-decoration: underline;
+}
 
 .category-posts h2 {
   margin-bottom: 15px;
