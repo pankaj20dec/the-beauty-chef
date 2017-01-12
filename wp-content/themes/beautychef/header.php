@@ -62,6 +62,6 @@
 			</div><!-- .navigation-top -->
 		<?php endif; ?>
 	</header><!-- #masthead -->
-	
+
 	<div class="site-content-contain">
 		<div id="content" class="site-content">

@@ -111,8 +111,34 @@ function press_post() {
 }
 add_action( 'init', 'press_post' );
 
+function faq_post() {
+	register_post_type( 'faqs',
+		array(
+				'labels' 			  => array(
+				'name' 				  => __( 'Faqs' ),
+				'singular_name'       => __( 'Faq' ),
+				'menu_name' 		  => __( 'Faqs', 'beautychef' ),
+				'parent_item_colon'   => __( 'Parent Faq', 'beautychef' ),
+				'all_items'			  => __( 'All Faq', 'beautychef' ),
+				'view_item' 		  => __( 'View Faq', 'beautychef' ),
+				'add_new_item' 		  => __( 'Add New Faq', 'beautychef' ),
+				'add_new'     	 	  => __( 'Add New', 'beautychef' ),
+				'edit_item'           => __( 'Edit Faq', 'beautychef' ),
+				'update_item'         => __( 'Update Faq', 'beautychef' ),
+				'search_items'        => __( 'Search Faq', 'beautychef' ),
+				'not_found'           => __( 'Not Found', 'beautychef' ),
+				'not_found_in_trash'  => __( 'Not found in Trash', 'beautychef' ),
+			),
+			'public' 		=> true,
+			'has_archive'   => true,
+			'rewrite' 		=> array('slug' => 'faqs'),
+			'supports'  	=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		)
+	);
+}
+add_action( 'init', 'faq_post' );
 
-// Recipe a new taxonomy
+// Recipe taxonomy
 function recipes_init() {
 	register_taxonomy(
 		'recipes_cat',
@@ -127,7 +153,7 @@ function recipes_init() {
 add_action( 'init', 'recipes_init' );
 
 
-// Press a new taxonomy
+// Press taxonomy
 function press_init() {
 	register_taxonomy(
 		'press_cat',
@@ -140,3 +166,17 @@ function press_init() {
 	);
 }
 add_action( 'init', 'press_init' );
+
+// Press taxonomy
+function faq_init() {
+	register_taxonomy(
+		'faq_cat',
+		'faqs',
+		array(
+			'label' => __( 'Faq Categories' ),
+			'rewrite' => array( 'slug' => 'faq_cat' ),
+			'hierarchical' => true,
+		)
+	);
+}
+add_action( 'init', 'faq_init' );

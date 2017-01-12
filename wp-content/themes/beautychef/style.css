@@ -991,6 +991,30 @@ header .top-menu span {
   padding-left: 12px;
 }
 
+/*********** Faqs ****************/
+.faq-categories .faq-cat li {
+  margin-bottom: 5px;
+}
+.faq-categories .faq-cat li a {
+  text-transform: none;
+}
+
+.category-posts h2 {
+  margin-bottom: 15px;
+}
+.category-posts .question {
+  border-top: 1px solid #ebebeb;
+  padding: 20px 0;
+  line-height: 1;
+}
+.category-posts .question span {
+  float: right;
+  font-size: 20px;
+}
+.category-posts .ques-ans:last-child .question {
+  border-bottom: 1px solid #ebebeb;
+}
+
 /***************  Footer ***************/
 .border-right {
   border-right: 1px solid #000000;

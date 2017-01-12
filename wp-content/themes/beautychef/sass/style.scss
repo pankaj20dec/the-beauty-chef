@@ -964,6 +964,36 @@ header{
     padding-left: 12px;
 }
 
+/*********** Faqs ****************/
+.faq-categories{
+	.faq-cat{
+		li{
+			margin-bottom: 5px;
+			a{
+				text-transform: none;
+			}	
+		}
+	}
+}
+.category-posts{
+	h2{
+		margin-bottom: 15px;
+	}
+	.question {
+		border-top: 1px solid $light_grey;
+		padding: 20px 0;
+		line-height: 1;
+		span{
+			float: right;
+			font-size: 20px;
+		}
+	}
+	.ques-ans:last-child{
+		.question{
+			border-bottom: 1px solid $light_grey;
+		}
+	}	
+}
 /***************  Footer ***************/
 footer{
 	@at-root .border-right{
