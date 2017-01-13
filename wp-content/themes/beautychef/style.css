@@ -397,12 +397,15 @@ header .navigation-top .icon.icon-angle-down {
   display: none;
 }
 header .top-menu {
-  left: 10px;
+  background: #fafafa;
+  left: 0;
   margin-top: 25px;
   position: absolute;
+  padding: 10px;
 }
 header .top-menu span {
   display: block;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
@@ -992,16 +995,84 @@ header .top-menu span {
 }
 
 /*********** Faqs ****************/
-.faq-categories .faq-cat li {
+.faq-container {
+  margin-bottom: 50px;
+}
+.faq-container .faq-categories {
+  padding-top: 32px;
+}
+.faq-container .faq-categories .faq-cat li {
   margin-bottom: 5px;
 }
-.faq-categories .faq-cat li a {
+.faq-container .faq-categories .faq-cat li a {
   text-transform: none;
 }
-.faq-categories .faq-cat li.active a {
+.faq-container .faq-categories .faq-cat li.active a {
   text-decoration: underline;
 }
+.faq-container .faq-categories .faq-search {
+  padding-top: 40px;
+  width: 100px;
+}
+.faq-container .faq-categories .faq-search input[type="search"] {
+  border: 0;
+  float: left;
+  border-bottom: 1px solid #000000;
+  width: 100px;
+  height: 22px;
+}
+.faq-container .faq-categories .faq-search input[type="search"]::-webkit-input-placeholder {
+  color: #000000;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.faq-container .faq-categories .faq-search input[type="search"]::-moz-placeholder {
+  color: #000000;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.faq-container .faq-categories .faq-search input[type="search"]:-ms-input-placeholder {
+  color: #000000;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.faq-container .faq-categories .faq-search input[type="search"]:-moz-placeholder {
+  color: #000000;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.faq-container .faq-categories .faq-search .faq-search-button {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+}
+.faq-container .faq-categories .faq-search .faq-search-button::after {
+  content: "\f002";
+  cursor: pointer;
+  font-family: "fontawesome";
+  left: -12px;
+  top: 2px;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  transform: rotate(90deg);
+}
+.faq-container .faq-categories .faq-search .faq-search-button input {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  z-index: 99;
+  margin-left: -12px;
+}
 
+.category-posts {
+  padding: 25px 0 50px;
+}
 .category-posts h2 {
   margin-bottom: 15px;
 }
@@ -1009,13 +1080,48 @@ header .top-menu span {
   border-top: 1px solid #ebebeb;
   padding: 20px 0;
   line-height: 1;
+  margin: 0;
+  cursor: pointer;
 }
 .category-posts .question span {
   float: right;
   font-size: 20px;
+  margin-top: -4px;
 }
-.category-posts .ques-ans:last-child .question {
+.category-posts .question span.plus.minus.active {
+  position: relative;
+  text-indent: -9999px;
+}
+.category-posts .question span.plus.minus.active:after {
+  content: "-";
+  position: absolute;
+  right: 0;
+  text-indent: 0;
+}
+.category-posts .ques-ans:nth-of-type(1) .question span {
+  float: right;
+  font-size: 20px;
+  margin-top: -4px;
+}
+.category-posts .ques-ans:nth-of-type(1) .question span.plus.minus {
+  position: relative;
+  text-indent: -9999px;
+}
+.category-posts .ques-ans:nth-of-type(1) .question span.plus.minus:after {
+  content: "-";
+  position: absolute;
+  right: 0;
+  text-indent: 0;
+}
+.category-posts .ques-ans:last-child {
   border-bottom: 1px solid #ebebeb;
+}
+.category-posts .ques-ans .answer {
+  display: none;
+  padding: 25px 0 20px 95px;
+}
+.category-posts .ques-ans:nth-of-type(1) .answer {
+  display: block;
 }
 
 /***************  Footer ***************/

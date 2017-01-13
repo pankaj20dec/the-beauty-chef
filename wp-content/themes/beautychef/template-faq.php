@@ -8,7 +8,7 @@ get_header();
 		<h1 class="entry-title"><span><?php echo the_title(); ?></span></h1>
 		<div class="faq-container">
 			<div class="row clearfix">
-				<div class="col-md-2 col-sm-2">	
+				<div class="col-md-2 col-sm-2 ">	
 					<div class="faq-categories">
 						<h6>Categories:</h6>
 						<ul class="alt-sub-heading faq-cat">
@@ -24,16 +24,16 @@ get_header();
 							}
 							?>
 						</ul>
-						<div class="search">
+						<div class="faq-search">
 							<form class="search" action="<?php echo home_url( '/' ); ?>">
-							  <input type="search" name="s" placeholder="Search&hellip;">
-							  <input type="submit" value="Search">
+								<input type="search" name="s" placeholder="Search">
+								<span class="faq-search-button"><input type="submit" value=""></span>
 							  <input type="hidden" name="post_type" value="faqs">
 							</form>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-10 col-sm-10">
+				<div class="col-md-9 col-sm-9 col-md-offset-1">
 					<ul class="faq-ul">
 					<?php 
 						$custom_terms = get_terms('faq_cat');
@@ -63,7 +63,7 @@ get_header();
 								while($loop->have_posts()) : $loop->the_post();
 								?>
 									<div class="ques-ans">		
-										<h6 class="question"><?php echo get_the_title();?><span class="plus">+</span></h6>
+										<h6 class="question"><?php echo get_the_title();?><span class="plus minus">+</span></h6>
 										<div class="answer">
 											<?php the_content(); ?> 
 										</div>
@@ -71,6 +71,7 @@ get_header();
 								
 								<?php
 								endwhile;
+								wp_reset_postdata();
 							 }
 							 ?>
 						 </div>
@@ -80,5 +81,14 @@ get_header();
 			</div>	
 		</div>
 	</div>
+<?php
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'banner-img' );
+	$banner_title = get_field('banner_title');
+?>
+<div class="page-banner flex-container" style="background:url('<?php echo $image[0]; ?>');">
+	<h2 class="page-banner-title">
+		<?php echo $banner_title; ?>
+	</h2>
+</div>
 <?php	
 get_footer();

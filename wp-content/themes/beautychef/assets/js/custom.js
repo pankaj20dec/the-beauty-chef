@@ -190,6 +190,21 @@ $(document).ready(function(){
 		  $href.prependTo($('.faq-ul')).hide().fadeIn(600);
 	 });
 	 
+	 // Faq Accordion
+	 $('.category-posts .ques-ans:nth-of-type(1) .question').find('span').addClass('active');	
+	 $(document).on('click','.category-posts .ques-ans .question', function(){
+		 
+		 if($(this).find('span').hasClass('active')){
+			$(this).find('h6 span').removeClass('minus active');
+			$(this).find('.answer').slideUp(500);
+		 }else{
+			$(this).siblings().slideDown(500); 
+			$(this).find('span').addClass('minus active'); 
+			$(this).parent().siblings().find('h6 span').removeClass('minus active');
+			$(this).parent().siblings().find('.answer').slideUp(500);
+		 }
+	 });
+	 
 });
 $(window).load(function(){
 	beautyChef.size();

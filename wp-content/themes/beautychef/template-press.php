@@ -32,7 +32,7 @@ get_header();
 						$query = new WP_Query( array(
 							 'order'        => 'ASC',
 							 'post_type'    => 'press',
-							 'posts_per_page'  => 4,
+							 'posts_per_page'  => 9,
 							 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
 						  ));
 							if ( $query->have_posts() ) :

@@ -352,11 +352,14 @@ header{
 		}
 	}
 	.top-menu {
-		left: 10px;
+		background: $cream_grey;
+		left: 0;
 		margin-top: 25px;
 		position: absolute;
+		padding: 10px;
 		span{
 			display: block;
+			line-height: 1.4;
 			text-transform: uppercase;
 		}
 	}
@@ -965,22 +968,87 @@ header{
 }
 
 /*********** Faqs ****************/
-.faq-categories{
-	.faq-cat{
-		li{
-			margin-bottom: 5px;
-			a{
-				text-transform: none;
-			}
-			&.active{
+.faq-container{
+	margin-bottom: 50px;
+	.faq-categories{
+		padding-top: 32px;
+		.faq-cat{
+			li{
+				margin-bottom: 5px;
 				a{
-					text-decoration: underline;
+					text-transform: none;
 				}
-			}		
+				&.active{
+					a{
+						text-decoration: underline;
+					}
+				}		
+			}
+		}
+		.faq-search{
+			padding-top: 40px;
+			width: 100px;
+			
+			input[type="search"]{
+				border: 0;
+				float: left;
+				border-bottom: 1px solid $black;
+				width: 100px;
+				height: 22px;
+					&::-webkit-input-placeholder { 
+					  color: $black;
+					  opacity: 1;
+					  text-transform: uppercase;
+					  letter-spacing: 0.1em;
+					}
+					&::-moz-placeholder { 
+					  color: $black;
+					  opacity: 1;
+					  text-transform: uppercase;
+					  letter-spacing: 0.1em;
+					}
+					&:-ms-input-placeholder {
+					  color: $black;
+					  opacity: 1;
+					  text-transform: uppercase;
+					  letter-spacing: 0.1em;
+					}
+					&:-moz-placeholder { 
+					  color: $black;
+					  opacity: 1;
+					  text-transform: uppercase;
+					  letter-spacing: 0.1em;
+					}
+			}
+			.faq-search-button {
+				position: absolute;
+				height: 20px;
+				width: 20px;
+				&::after {
+					content: "\f002";
+					cursor: pointer;
+					font-family: "fontawesome";
+					left: -12px;
+					top: 2px;
+					height: 20px;
+					width: 20px;
+					position: absolute;
+					transform: rotate(90deg);
+				}
+				input{
+					border: 0;
+					background: transparent;
+					box-shadow: none;
+					position: absolute;
+					z-index: 99;
+					margin-left: -12px;
+				}
+			}
 		}
 	}
 }
 .category-posts{
+	padding: 25px 0 50px;
 	h2{
 		margin-bottom: 15px;
 	}
@@ -988,16 +1056,59 @@ header{
 		border-top: 1px solid $light_grey;
 		padding: 20px 0;
 		line-height: 1;
+		margin: 0;
+		cursor: pointer;
 		span{
 			float: right;
 			font-size: 20px;
+			margin-top: -4px;
+			&.plus{
+				&.minus.active{
+					position: relative;
+					text-indent: -9999px;
+					&:after {
+						content: "-";
+						position: absolute;
+						right: 0;
+						text-indent: 0;
+					}
+				}
+			}
 		}
 	}
-	.ques-ans:last-child{
+	.ques-ans:nth-of-type(1){
 		.question{
-			border-bottom: 1px solid $light_grey;
+			span{
+			float: right;
+			font-size: 20px;
+			margin-top: -4px;
+			&.plus{
+				&.minus{
+					position: relative;
+					text-indent: -9999px;
+					&:after {
+						content: "-";
+						position: absolute;
+						right: 0;
+						text-indent: 0;
+					}
+				}
+			}
 		}
-	}	
+	  }
+	}
+	.ques-ans:last-child{
+		border-bottom: 1px solid $light_grey;
+	}
+	.ques-ans{
+		.answer{
+			display: none;
+			padding: 25px 0 20px 95px;		
+		}
+	}		
+	.ques-ans:nth-of-type(1) .answer{
+		display: block;
+	}
 }
 /***************  Footer ***************/
 footer{
