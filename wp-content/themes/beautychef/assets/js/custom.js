@@ -192,11 +192,10 @@ $(document).ready(function(){
 	 
 	 // Faq Accordion
 	 $('.category-posts .ques-ans:nth-of-type(1) .question').find('span').addClass('active');	
-	 $(document).on('click','.category-posts .ques-ans .question', function(){
-		 
+	 $('.category-posts .ques-ans .question').click(function(){
 		 if($(this).find('span').hasClass('active')){
-			$(this).find('h6 span').removeClass('minus active');
-			$(this).find('.answer').slideUp(500);
+			$(this).find('span').removeClass('minus active');
+			$(this).parent().find('.answer').slideUp(500);
 		 }else{
 			$(this).siblings().slideDown(500); 
 			$(this).find('span').addClass('minus active'); 

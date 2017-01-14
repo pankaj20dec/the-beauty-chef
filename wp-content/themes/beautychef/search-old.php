@@ -16,9 +16,9 @@ get_header(); ?>
 
 	<header class="page-header">
 		<?php if ( have_posts() ) : ?>
-			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyseventeen' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'beautychef' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		<?php else : ?>
-			<h1 class="page-title"><?php _e( 'Nothing Found', 'twentyseventeen' ); ?></h1>
+			<h1 class="page-title"><?php _e( 'Nothing Found', 'beautychef' ); ?></h1>
 		<?php endif; ?>
 	</header><!-- .page-header -->
 
@@ -40,14 +40,14 @@ get_header(); ?>
 			endwhile; // End of the loop.
 
 			the_posts_pagination( array(
-				'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
+				'prev_text' => beautychef_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'beautychef' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'beautychef' ) . '</span>' . beautychef_get_svg( array( 'icon' => 'arrow-right' ) ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'beautychef' ) . ' </span>',
 			) );
 
 		else : ?>
 
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentyseventeen' ); ?></p>
+			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'beautychef' ); ?></p>
 			<?php
 				get_search_form();
 
