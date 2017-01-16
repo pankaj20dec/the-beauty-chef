@@ -127,18 +127,27 @@ button{
 	font-style: italic;
 	line-height: 1.428;
 	letter-spacing: 0.100em;
+	&:hover{
+		background: $light_grey;
+	}
 }
 .link-button{
 	@extend button;
 	border: 1px solid #000;
 	padding: 10px 25px;
-	display: inline-block;	
+	display: inline-block;
+	&:hover{
+		background: $light_grey;
+	}	
 }
 .btn{
 	background: transparent;
 	border: 1px solid #000;
 	border-radius: 0;
 	padding: 4px 25px;
+	&:hover{
+		background: $light_grey;
+	}
 }
 input{
 	border-radius: 0;
@@ -222,6 +231,7 @@ img{
 header{
 	position: relative;
 	z-index: 999;
+	
 	@at-root .home{
 		header{
 			margin-bottom: 25px;
@@ -271,11 +281,13 @@ header{
 		.logo{
 			text-align: center;
 			padding: 30px 0;
+			transition: all 0.4s ease;
 		}
 		@at-root .social-icons{
 			position: absolute;
 			top: 60px;
 			left: 14px;
+			transition: all 0.4s ease;
 			ul{
 				li{
 					display: block;
@@ -321,7 +333,8 @@ header{
 				}
 				&.current-menu-item{
 					a{
-						text-decoration: underline;	
+						/* text-decoration: underline;	 */
+						/* color: $light_grey; */
 					}	
 				}
 				.sub-menu{
@@ -363,8 +376,39 @@ header{
 			text-transform: uppercase;
 		}
 	}
+	
+	&.site-header{
+		&.fixed{
+			position: fixed;
+			width: 100%;
+			background: #fff;
+			z-index: 9999;
+			.social-icons{
+				top: 40px;
+				transition: all 0.4s ease;
+				ul{
+					li{
+						margin-bottom: 6px;
+						transition: all 0.4s ease;
+					}
+				}
+			}
+			.logo{
+				padding: 0;
+				img{
+					transform: scale(0.8);
+					transition: all 0.4s ease;
+				}
+			}
+		}
+	}	
 }
 
+.site-content-contain{
+	&.fixed{
+		padding-top: 160px;
+	}
+}
 /**************  Main page *******************/
 .intro-section{
 	.intro-width{
@@ -460,11 +504,10 @@ header{
 	.image{
 		position: relative;
 		.home-cat-name{
-			bottom: 0;
-			left: -25px;
+			top: 50%;
+			left: -20px;
 			position: absolute;
-			transform: translateY(-50%) rotate(-90deg);
-			transform-origin: 0 0 0;
+			transform: translateX(-50%) translateY(-50%) rotate(-90deg);
 		}
 	}
 	.right-boxes{
@@ -553,12 +596,16 @@ header{
 		padding-top: 40px;
 		.chef-details{	
 			padding: 20px 0 0 20px;
+			.chef-name{
+				padding-left: 0;
+			}
 			.sub-heading{
 				text-transform: none;
 				font-size: 18px;
 				line-height: 1.6666;
 				letter-spacing: 0;
 				margin-top: 0;
+				text-align: left;
 			}
 			.description{
 				-webkit-column-count: 2;
@@ -1108,6 +1155,14 @@ header{
 	}		
 	.ques-ans:nth-of-type(1) .answer{
 		display: block;
+	}
+}
+.caption {
+    position: absolute;
+    right: 70px;
+    top: 90px;
+	h6{
+		text-transform: none;
 	}
 }
 /***************  Footer ***************/

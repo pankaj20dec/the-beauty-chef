@@ -138,6 +138,34 @@ function faq_post() {
 }
 add_action( 'init', 'faq_post' );
 
+// International Stockists
+function international_stockists_post() {
+	register_post_type( 'int_stockists',
+		array(
+				'labels' 			  => array(
+				'name' 				  => __( 'International Stockists' ),
+				'singular_name'       => __( 'International Stockist' ),
+				'menu_name' 		  => __( 'International Stockists', 'beautychef' ),
+				'parent_item_colon'   => __( 'Parent International Stockist', 'beautychef' ),
+				'all_items'			  => __( 'All International Stockist', 'beautychef' ),
+				'view_item' 		  => __( 'View International Stockist', 'beautychef' ),
+				'add_new_item' 		  => __( 'Add New International Stockist', 'beautychef' ),
+				'add_new'     	 	  => __( 'Add New', 'beautychef' ),
+				'edit_item'           => __( 'Edit International Stockist', 'beautychef' ),
+				'update_item'         => __( 'Update International Stockist', 'beautychef' ),
+				'search_items'        => __( 'Search International Stockist', 'beautychef' ),
+				'not_found'           => __( 'Not Found', 'beautychef' ),
+				'not_found_in_trash'  => __( 'Not found in Trash', 'beautychef' ),
+			),
+			'public' 		=> true,
+			'has_archive'   => true,
+			'rewrite' 		=> array('slug' => 'int_stockists'),
+			'supports'  	=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		)
+	);
+}
+add_action( 'init', 'international_stockists_post' );
+
 // Recipe taxonomy
 function recipes_init() {
 	register_taxonomy(
@@ -167,7 +195,7 @@ function press_init() {
 }
 add_action( 'init', 'press_init' );
 
-// Press taxonomy
+// Faq taxonomy
 function faq_init() {
 	register_taxonomy(
 		'faq_cat',
@@ -180,3 +208,17 @@ function faq_init() {
 	);
 }
 add_action( 'init', 'faq_init' );
+
+// International stockists taxonomy
+function international_stockists_init() {
+	register_taxonomy(
+		'int_stockists_cat',
+		'int_stockists',
+		array(
+			'label' => __( 'Stockists Categories' ),
+			'rewrite' => array( 'slug' => 'int_stockists_cat' ),
+			'hierarchical' => true,
+		)
+	);
+}
+add_action( 'init', 'international_stockists_init' );

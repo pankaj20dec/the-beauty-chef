@@ -8,9 +8,24 @@ get_header(); ?>
 		<div id="intro" class="intro-width">
 			<div class="intro-slider-container">
 				<ul class="intro-slider">
-					<li><img src="<?php echo get_template_directory_uri();?>/assets/images/slide.jpg" alt="Home slide" /></li>
-					<li><img src="<?php echo get_template_directory_uri();?>/assets/images/slide.jpg" alt="Home slide" /></li>
-					<li><img src="<?php echo get_template_directory_uri();?>/assets/images/slide.jpg" alt="Home slide" /></li>
+					<li><img src="<?php echo get_template_directory_uri();?>/assets/images/slide.jpg" alt="Home slide" />
+						<div class="caption">
+							<h2>enhance + boost + radiate</h2>
+							<h6 class="alt-sub-heading">bio-fermented probiotic elixirs for extra support</h6>
+						</div>
+						</li>
+					<li><img src="<?php echo get_template_directory_uri();?>/assets/images/slide.jpg" alt="Home slide" />
+						<div class="caption">
+							<h2>enhance + boost + radiate</h2>
+							<h6 class="alt-sub-heading">bio-fermented probiotic elixirs for extra support</h6>
+						</div>
+					</li>
+					<li><img src="<?php echo get_template_directory_uri();?>/assets/images/slide.jpg" alt="Home slide" />
+						<div class="caption">
+							<h2>enhance + boost + radiate</h2>
+							<h6 class="alt-sub-heading">bio-fermented probiotic elixirs for extra support</h6>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>

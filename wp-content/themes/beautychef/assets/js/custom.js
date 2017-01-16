@@ -230,4 +230,13 @@ $(window).scroll(function(){
 	}else{
 		$('.scroll-top').fadeOut();
 	}
+	
+	// Fixed header 
+	if($(window).scrollTop() > 0){
+		$('header').addClass('fixed');
+		$('.site-content-contain').addClass('fixed');
+	}else{
+		$('header').removeClass('fixed');
+		$('.site-content-contain').removeClass('fixed');
+	}
 });

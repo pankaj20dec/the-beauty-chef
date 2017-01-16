@@ -35,7 +35,7 @@ Text Domain: The Beauty Chef
 @font-face {
   font-family: 'Nexa-Rust-Sans-Book-03';
   src: url("assets/fonts/NexaRustSans-Book03.eot");
-  src: url("assets/fonts/NexaRustSans-Book03.eot?#iefix") format("embedded-opentype"), url("assets/fonts/NexaRustSans-Book03.woff") format("woff"), url("assets/fonts/NexaRustSans-Book03.ttf") format("truetype");
+  src: url("assets/fonts/NexaRustSans-Book03.eot?#iefix") format("embedded-opentype"), url("assets/fonts/NexaRustSans-Book03.woff2") format("woff2"), url("assets/fonts/NexaRustSans-Book03.woff") format("woff"), url("assets/fonts/NexaRustSans-Book03.ttf") format("truetype"), url("assets/fonts/NexaRustSans-Book03.svg#NexaRustSans-Book03") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -177,11 +177,17 @@ button, .link-button {
   line-height: 1.428;
   letter-spacing: 0.100em;
 }
+button:hover, .link-button:hover {
+  background: #ebebeb;
+}
 
 .link-button {
   border: 1px solid #000;
   padding: 10px 25px;
   display: inline-block;
+}
+.link-button:hover {
+  background: #ebebeb;
 }
 
 .btn {
@@ -189,6 +195,9 @@ button, .link-button {
   border: 1px solid #000;
   border-radius: 0;
   padding: 4px 25px;
+}
+.btn:hover {
+  background: #ebebeb;
 }
 
 input {
@@ -325,11 +334,13 @@ header .logo-header .top-bar .right-bar ul li a i.icon-user {
 header .logo-header .logo {
   text-align: center;
   padding: 30px 0;
+  transition: all 0.4s ease;
 }
 .social-icons {
   position: absolute;
   top: 60px;
   left: 14px;
+  transition: all 0.4s ease;
 }
 .social-icons ul li {
   display: block;
@@ -370,7 +381,8 @@ header .navigation-top .menu li a:hover {
   text-decoration: underline;
 }
 header .navigation-top .menu li.current-menu-item a {
-  text-decoration: underline;
+  /* text-decoration: underline;	 */
+  /* color: $light_grey; */
 }
 header .navigation-top .menu li .sub-menu {
   padding: 0 0 0 10px;
@@ -407,6 +419,31 @@ header .top-menu span {
   display: block;
   line-height: 1.4;
   text-transform: uppercase;
+}
+header.site-header.fixed {
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 9999;
+}
+header.site-header.fixed .social-icons {
+  top: 40px;
+  transition: all 0.4s ease;
+}
+header.site-header.fixed .social-icons ul li {
+  margin-bottom: 6px;
+  transition: all 0.4s ease;
+}
+header.site-header.fixed .logo {
+  padding: 0;
+}
+header.site-header.fixed .logo img {
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+.site-content-contain.fixed {
+  padding-top: 160px;
 }
 
 /**************  Main page *******************/
@@ -500,11 +537,10 @@ header .top-menu span {
   position: relative;
 }
 #home-grid .image .home-cat-name {
-  bottom: 0;
-  left: -25px;
+  top: 50%;
+  left: -20px;
   position: absolute;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: 0 0 0;
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
 }
 #home-grid .right-boxes .testimonial-slider {
   padding: 25px 54px 10px;
@@ -594,12 +630,16 @@ header .top-menu span {
 .about-deatail-container .about-chef .chef-details {
   padding: 20px 0 0 20px;
 }
+.about-deatail-container .about-chef .chef-details .chef-name {
+  padding-left: 0;
+}
 .about-deatail-container .about-chef .chef-details .sub-heading {
   text-transform: none;
   font-size: 18px;
   line-height: 1.6666;
   letter-spacing: 0;
   margin-top: 0;
+  text-align: left;
 }
 .about-deatail-container .about-chef .chef-details .description {
   -webkit-column-count: 2;
@@ -1122,6 +1162,15 @@ header .top-menu span {
 }
 .category-posts .ques-ans:nth-of-type(1) .answer {
   display: block;
+}
+
+.caption {
+  position: absolute;
+  right: 70px;
+  top: 90px;
+}
+.caption h6 {
+  text-transform: none;
 }
 
 /***************  Footer ***************/

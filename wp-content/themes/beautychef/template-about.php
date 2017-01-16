@@ -44,7 +44,7 @@ get_header(); ?>
 			</div>
 		<?php endwhile;
 		wp_reset_postdata(); ?>
-		<div class="team-list container">
+		<div id="team" class="team-list container">
 			<div class="row clearfix">
 					<h2 class="team-heading"> the team </h2>
 					<div class="team-member-container">
@@ -52,7 +52,7 @@ get_header(); ?>
 							$query_default = new WP_Query( array(
 								 'order'        => 'ASC',
 								 'post_type'    => 'naturopaths',
-								 'post_status'  => 'publish'
+								 'posts_per_page' => -1
 							  ));
 								if ( $query_default->have_posts() ) :
 
