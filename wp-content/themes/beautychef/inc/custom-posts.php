@@ -160,7 +160,7 @@ function stockists_post() {
 			'public' 		=> true,
 			'has_archive'   => true,
 			'rewrite' 		=> array('slug' => 'stockists'),
-			'supports'  	=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+			'supports'  	=> array( 'title','excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
 		)
 	);
 }

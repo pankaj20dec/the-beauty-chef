@@ -9,21 +9,23 @@ get_header(); ?>
 						<h6>International:</h6>
 						<ul class="alt-sub-heading int-stockists-cat">
 							<?php 
-							$terms = get_terms( array(
-								'taxonomy' => 'int_stockists_cat',
-								'hide_empty' => false,
-							) ); 
-							foreach($terms as $term){
-								$term_get = get_term_link($term);
-								echo '<li><a href="'.$term_get.'">'.$term->name.'</a></li>';
+							$term = get_term_by( 'slug', 'international', 'stockists_cat'); 
+							$term_id = $term->term_id;
+							$taxonomy_name = 'stockists_cat';
+							$termchildren = get_term_children( $term_id, $taxonomy_name );
+							 
+							foreach ( $termchildren as $child ) {
+								$term = get_term_by( 'id', $child, $taxonomy_name );
+								echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
 							}
-							?>
+
+							?> 
 						</ul>
 						<div class="int-stockists-search faq-search">
 							<form class="search" action="<?php echo home_url( '/' ); ?>">
 								<input type="search" name="s" placeholder="Search">
 								<span class="int-stockists-search-button faq-search-button"><input type="submit" value=""></span>
-							  <input type="hidden" name="post_type" value="int_stockists">
+							  <input type="hidden" name="post_type" value="stockists">
 							</form>
 						</div>
 					</div>
@@ -37,11 +39,30 @@ get_header(); ?>
 							if ( have_posts() ) :
 								
 								while ( have_posts() ) : the_post();
+								$ID = $post->ID;
+								$company_name = carbon_get_post_meta( $ID, 'crb_company_name' );
+								$address = carbon_get_post_meta( $ID, 'crb_company_address' );
+								$company_city  	= carbon_get_post_meta( $ID, 'crb_company_city' );
+								$company_state = carbon_get_post_meta( $ID, 'crb_company_state' );
+								$phone      	= carbon_get_post_meta( $ID, 'crb_company_phone' );
+								$company_zipcode= carbon_get_post_meta( $ID, 'crb_company_zipcode' );
+								$company_website= carbon_get_post_meta( $ID, 'crb_company_website' );
 								?>
 									<li class="int-stockists-box">
 										<div class="int-stockists-content">
 											<h5><?php the_title(); ?></h5>
-											<?php the_content();?>
+											<p>
+											<?php 
+											if(!empty($company_name)){ echo $company_name.'</br>';}
+											if(!empty($address)){ echo $address.'</br>';}
+											if(!empty($company_city)){ echo $company_city.'</br>';}
+											if(!empty($company_state)){ echo $company_state;}
+											if(!empty($company_zipcode)){echo $company_zipcode;}
+											echo '</br>';
+											if(!empty($phone)){ echo $phone.'</br>';}
+											if(!empty($company_website)){ echo $company_website;}
+											?>
+											</p>
 										</div>
 									</li>
 								<?php endwhile;

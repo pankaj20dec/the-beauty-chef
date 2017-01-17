@@ -16,7 +16,7 @@ get_header();
 							<form class="search" action="<?php echo home_url( '/' ); ?>">
 								<input type="search" name="s" placeholder="Search">
 								<span class="int-stockists-search-button faq-search-button"><input type="submit" value=""></span>
-							  <input type="hidden" name="post_type" value="int_stockists">
+							  <input type="hidden" name="post_type" value="stockists">
 							</form>
 						</div>
 					</div>
@@ -50,7 +50,7 @@ get_header();
 					<div id="stockistmap" style="height: 300px;" class="stockistmap"></div>
 					<?php
 					$stockists_country_terms = array();
-					$stockists_country_terms[] = get_term_by( "slug", "australia", "stockist_country");
+					$stockists_country_terms[] = get_term_by( "slug", "australian", "stockists_cat");
 					?>
 					<div class="row switch">
 						<div class="col-lg-5 columns">
@@ -67,13 +67,13 @@ get_header();
 										'posts_per_page' => -1,
 										'orderby' => 'post_date',
 										'order' => 'DESC',
-										'post_type' => 'suc_stockists',
+										'post_type' => 'stockists',
 										'post_status' => 'publish',
 										'suppress_filters' => true ,
 										'tax_query' => array(
 											'relation' => 'AND',
 											array(
-												'taxonomy' => 'stockist_country',
+												'taxonomy' => 'stockists_cat',
 												'field' => 'term_id',
 												'terms' => $term_id
 											)
@@ -174,7 +174,7 @@ get_header();
 <script>
 	var themePath = "";
 </script>
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAETE_ZGNfzfE62qUFTIeEn2GsWjgsnW-E"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDc_v4HXtKL7SsPsrChdZdKXJWQMqFxzi0"></script>
 <script>
 	var markers = [
 		<?php

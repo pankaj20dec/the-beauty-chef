@@ -15,6 +15,7 @@ Container::make('post_meta', 'Additional Info')
         Field::make('text', 'crb_company_name'),
         Field::make('textarea', 'crb_company_address'),
         Field::make('text', 'crb_company_city'),
+        Field::make('text', 'crb_company_state'),
         Field::make('text', 'crb_company_zipcode'),
         Field::make('text', 'crb_company_phone'),
         Field::make('text', 'crb_company_website'),
