@@ -23,31 +23,26 @@ get_header();
 							}
 							?>
 						</ul>
-						<div class="int-stockists-search">
+						<div class="int-stockists-search faq-search">
 							<form class="search" action="<?php echo home_url( '/' ); ?>">
 								<input type="search" name="s" placeholder="Search">
-								<span class="int-stockists-search-button"><input type="submit" value=""></span>
+								<span class="int-stockists-search-button faq-search-button"><input type="submit" value=""></span>
 							  <input type="hidden" name="post_type" value="int_stockists">
 							</form>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-9 col-sm-9">
-					<div class="category-name">
-						<h2>USA</h2>
-					</div>
-					<ul class="int-stockists-ul">
+					<ul class="int-stockists-ul col-md-offset-1">
 					<?php 
 						$query = new WP_Query( array(
 							 'order'        => 'ASC',
 							 'post_type'    => 'int_stockists',
-							 'posts_per_page'  => 9,
+							 'posts_per_page'  => 4,
 							 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
 						  ));
 							if ( $query->have_posts() ) :
 								while ( $query->have_posts() ) : $query->the_post();
-								$date = get_field('date');
-								$article_url = get_field('article_url');
 								?>
 									<li class="int-stockists-box">
 										<div class="int-stockists-content">

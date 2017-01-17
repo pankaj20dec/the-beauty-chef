@@ -1032,7 +1032,7 @@ header{
 				}		
 			}
 		}
-		.faq-search{
+		@at-root .faq-search{
 			padding-top: 40px;
 			width: 100px;
 			
@@ -1158,13 +1158,66 @@ header{
 	}
 }
 .caption {
-    position: absolute;
-    right: 70px;
-    top: 90px;
-	h6{
+	position: absolute;
+	right: 70px;
+	top: 90px;
+	  h6{
 		text-transform: none;
+	 }
+ }
+
+ /*********** International Stockists **************/
+ .int-stockists-container{
+	 padding-top: 40px;
+	.int-stockists-categories{
+		li{
+			&.active{
+				text-decoration: underline;
+			}
+		}
+		.alt-sub-heading{
+			text-transform: none;
+			&.int-stockists-cat{
+				li{
+					margin-bottom: 5px;
+				}
+			}	
+		}
+		.int-stockists-search{
+			padding-top: 30px;
+		}
+		&.left-categories{
+			margin-top: 93px;
+		}
 	}
-}
+	.int-stockists-ul,.int-stockists-cat-ul{
+		.int-stockists-box {
+			box-sizing: border-box;
+			display: inline-block;
+			padding-right: 60px;
+			margin-bottom: 22px;
+			vertical-align: top;
+			width: 32%;
+			&:nth-child(3n){
+				padding-right: 0;
+			}	
+		}
+	}
+	.cat-title{
+		border-bottom: 1px solid $border_color;
+		margin-bottom: 30px;
+		h2{
+			margin-top: 10px;
+			margin-bottom: 18px;
+		}
+	}
+	.int-stockists-content{
+		h5{
+			font-size: 12px;
+		}
+	}
+ }
+
 /***************  Footer ***************/
 footer{
 	@at-root .border-right{

@@ -49,7 +49,7 @@ $(document).ready(function(){
 		 nav:true,
 		 autoplay: true,
 		 responsive:{
-			 1000:{
+			 0:{
 				 items:1
 			 }
 		 }
@@ -173,6 +173,85 @@ $(document).ready(function(){
 			});
 		}
 	}
+	
+	// International Stockists
+	 if($('.int-stockists-ul').length){
+		 if($('.next-prev li a').find('.next-post')){
+			//console.log('have next');
+			 var pageLength = $('.page-numbers li').length;
+			 //console.log(pageLength);		
+			 var pageNum = 2;
+				 $('.next-prev .next-post').click(function(e){
+					 e.preventDefault();
+					 var numPlus = pageNum++;
+					 if( numPlus <= pageLength){
+						 var href = $(this).attr('href');
+						 var targetLink = href.split("/");
+						// Substring length
+						 var tLength = targetLink.length;
+						 // change page value
+						 targetLink[tLength - 2] = numPlus;
+						// New link	with new page
+						 var newTarget = targetLink.join('/');
+						 console.log('newTarget:'+ newTarget);
+						  $.ajax({
+							url : newTarget,
+							type: 'POST',
+							dataType: "html",
+							error: function(response){
+							},
+							success: function(response){
+								 console.log(response);
+								 var result = $('<div />').append(response).find('.int-stockists-ul').html();
+								$('.int-stockists-ul').append(result).hide().fadeIn(300);
+							}
+						});   
+						
+					}else{
+						$('.next-prev').html("<li class='no-more'>no more stockists</li>");
+					}
+			});
+		}
+	}
+	
+	// category filter load more	
+	 if($('.int-stockists-cat-ul').length){
+		  if($('.category-loadmore li a').find('.next-post')){
+			 var pageLength = $('.nav-links a').length;
+			 console.log(pageLength);		
+			 var pageNum = 2;
+				 $('.category-loadmore .next-post').click(function(e){
+					 e.preventDefault();
+					 var numPlus = pageNum++;
+					 if( numPlus <= pageLength){
+						 var href = $(this).attr('href');
+						 var targetLink = href.split("/");
+						// Substring length
+						 var tLength = targetLink.length;
+						 // change page value
+						 targetLink[tLength - 2] = numPlus;
+						// New link	with new page
+						 var newTarget = targetLink.join('/');
+						 console.log('newTarget:'+ newTarget);
+						  $.ajax({
+							url : newTarget,
+							type: 'POST',
+							dataType: "html",
+							error: function(response){
+							},
+							success: function(response){
+								 console.log(response);
+								 var result = $('<div />').append(response).find('.int-stockists-cat-ul').html();
+								$('.int-stockists-cat-ul').append(result).hide().fadeIn(300);
+							}
+						});   
+						
+					}else{
+						$('.category-loadmore').html("<p class='no-more'>no more Stockists	</p>");
+					}
+			});
+		}
+	 }
 	// Scroll Top click event
 	$('.scroll-top a').click(function(e){
 		e.preventDefault();
@@ -209,7 +288,7 @@ $(window).load(function(){
 	beautyChef.size();
 	beautyChef.introSlider();
 	
-	$('.press-cat li').each(function(){
+	$('.press-cat li,.int-stockists-categories li').each(function(){
 		if(window.location.href.indexOf($(this).find('a').attr('href'))> -1)
 		{
 			$(this).addClass('active').siblings().removeClass('active');

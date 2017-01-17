@@ -1,17 +1,16 @@
 <?php
 get_header(); ?>
 	<div class="container">
-		<h1 class="entry-title"><span><?php echo the_title(); ?></span></h1>
-		<div class="press-container">
+		<h1 class="entry-title"><span>International Stockists</span></h1>
+		<div class="int-stockists-container">
 			<div class="row clearfix">
-				<div class="col-md-2 col-sm-2">	
-					<div class="press-categories">
-						<h6>Categories:</h6>
-						<ul class="alt-sub-heading press-cat">
-							<li class="active"><a href="<?php echo site_url();?>/press-post">All</a></li>
+				<div class="col-md-3 col-sm-3">	
+					<div class="int-stockists-categories left-categories">
+						<h6>International:</h6>
+						<ul class="alt-sub-heading int-stockists-cat">
 							<?php 
 							$terms = get_terms( array(
-								'taxonomy' => 'press_cat',
+								'taxonomy' => 'int_stockists_cat',
 								'hide_empty' => false,
 							) ); 
 							foreach($terms as $term){
@@ -20,35 +19,29 @@ get_header(); ?>
 							}
 							?>
 						</ul>
+						<div class="int-stockists-search faq-search">
+							<form class="search" action="<?php echo home_url( '/' ); ?>">
+								<input type="search" name="s" placeholder="Search">
+								<span class="int-stockists-search-button faq-search-button"><input type="submit" value=""></span>
+							  <input type="hidden" name="post_type" value="int_stockists">
+							</form>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-10 col-sm-10">
-					<ul class="press-cat-ul">
+				<div class="col-md-9 col-sm-9">
+					<div class="cat-title">
+						<h2><?php single_term_title(); ?></h2>
+					</div>
+					<ul class="int-stockists-cat-ul col-md-offset-1">
 					<?php 
 							if ( have_posts() ) :
 								
 								while ( have_posts() ) : the_post();
-								$date = get_field('date');
-								$article_url = get_field('article_url');
 								?>
-									<li class="press-box">
-										<div class="press-content">
-											<div class="press-image">
-												<?php the_post_thumbnail('press-img'); ?>
-												<div class="cat-name">
-													<span class="alt-sub-heading">
-													<?php $categories = get_the_terms( $post->ID, 'press_cat' );
-														foreach( $categories as $category ) {
-															$term_link = get_term_link($category);
-															echo '<a href="'.$term_link.'">'.$category->name.'</a>';
-														}
-													?>
-													</span>
-												</div>
-											</div>
-											<h5><?php the_title(); ?><br/>
-											<?php if(!empty($date)){ echo date("F d", strtotime($date));} ?></h5>
-											 <h6 class="alt-sub-heading"><a href="<?php echo $article_url ?>">read article</a></h6>
+									<li class="int-stockists-box">
+										<div class="int-stockists-content">
+											<h5><?php the_title(); ?></h5>
+											<?php the_content();?>
 										</div>
 									</li>
 								<?php endwhile;

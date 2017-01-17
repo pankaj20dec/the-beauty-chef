@@ -510,8 +510,19 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
-require get_parent_theme_file_path( '/inc/custom-posts.php' );
 
+
+require(__DIR__ . '/library/carbon-fields/carbon-fields-plugin.php');
+add_action('carbon_register_fields', 'crb_register_custom_fields');
+function crb_register_custom_fields() {
+    include_once(dirname(__FILE__) . '/inc/post-meta.php');
+}
+
+require get_parent_theme_file_path( '/inc/custom-posts.php' );
+add_action( 'carbon_map_api_key', 'crb_get_gmaps_api_key' );
+function crb_get_gmaps_api_key( $current_key ) {
+    return carbon_get_theme_option('crb_google_map_api_key');
+}
 
 // numbered pagination
 function pagination($pages = '', $range = 4)
@@ -559,3 +570,4 @@ function posts_link_attributes_1() {
 function posts_link_attributes_2() {
     return 'class="prev-post"';
 }
+

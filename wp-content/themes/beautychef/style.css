@@ -1050,47 +1050,47 @@ header.site-header.fixed .logo img {
 .faq-container .faq-categories .faq-cat li.active a {
   text-decoration: underline;
 }
-.faq-container .faq-categories .faq-search {
+.faq-search {
   padding-top: 40px;
   width: 100px;
 }
-.faq-container .faq-categories .faq-search input[type="search"] {
+.faq-search input[type="search"] {
   border: 0;
   float: left;
   border-bottom: 1px solid #000000;
   width: 100px;
   height: 22px;
 }
-.faq-container .faq-categories .faq-search input[type="search"]::-webkit-input-placeholder {
+.faq-search input[type="search"]::-webkit-input-placeholder {
   color: #000000;
   opacity: 1;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-.faq-container .faq-categories .faq-search input[type="search"]::-moz-placeholder {
+.faq-search input[type="search"]::-moz-placeholder {
   color: #000000;
   opacity: 1;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-.faq-container .faq-categories .faq-search input[type="search"]:-ms-input-placeholder {
+.faq-search input[type="search"]:-ms-input-placeholder {
   color: #000000;
   opacity: 1;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-.faq-container .faq-categories .faq-search input[type="search"]:-moz-placeholder {
+.faq-search input[type="search"]:-moz-placeholder {
   color: #000000;
   opacity: 1;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-.faq-container .faq-categories .faq-search .faq-search-button {
+.faq-search .faq-search-button {
   position: absolute;
   height: 20px;
   width: 20px;
 }
-.faq-container .faq-categories .faq-search .faq-search-button::after {
+.faq-search .faq-search-button::after {
   content: "\f002";
   cursor: pointer;
   font-family: "fontawesome";
@@ -1101,7 +1101,7 @@ header.site-header.fixed .logo img {
   position: absolute;
   transform: rotate(90deg);
 }
-.faq-container .faq-categories .faq-search .faq-search-button input {
+.faq-search .faq-search-button input {
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -1171,6 +1171,48 @@ header.site-header.fixed .logo img {
 }
 .caption h6 {
   text-transform: none;
+}
+
+/*********** International Stockists **************/
+.int-stockists-container {
+  padding-top: 40px;
+}
+.int-stockists-container .int-stockists-categories li.active {
+  text-decoration: underline;
+}
+.int-stockists-container .int-stockists-categories .alt-sub-heading {
+  text-transform: none;
+}
+.int-stockists-container .int-stockists-categories .alt-sub-heading.int-stockists-cat li {
+  margin-bottom: 5px;
+}
+.int-stockists-container .int-stockists-categories .int-stockists-search {
+  padding-top: 30px;
+}
+.int-stockists-container .int-stockists-categories.left-categories {
+  margin-top: 93px;
+}
+.int-stockists-container .int-stockists-ul .int-stockists-box, .int-stockists-container .int-stockists-cat-ul .int-stockists-box {
+  box-sizing: border-box;
+  display: inline-block;
+  padding-right: 60px;
+  margin-bottom: 22px;
+  vertical-align: top;
+  width: 32%;
+}
+.int-stockists-container .int-stockists-ul .int-stockists-box:nth-child(3n), .int-stockists-container .int-stockists-cat-ul .int-stockists-box:nth-child(3n) {
+  padding-right: 0;
+}
+.int-stockists-container .cat-title {
+  border-bottom: 1px solid #bbbbbb;
+  margin-bottom: 30px;
+}
+.int-stockists-container .cat-title h2 {
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.int-stockists-container .int-stockists-content h5 {
+  font-size: 12px;
 }
 
 /***************  Footer ***************/
