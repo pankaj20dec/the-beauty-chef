@@ -10,8 +10,10 @@ get_header();
 			<div class="row clearfix">
 				<div class="col-md-2 col-sm-2">	
 					<div class="aus-stockists-categories">
-						<h6 class="active">Australian</h6>
-						<h6>International</h6>
+						<ul>
+							<li class="active"><a href="<?php echo site_url(); ?>/australian-stockists">Australian</a></li>
+							<li><a href="<?php echo site_url(); ?>/international-stockists">International</a></li>
+						</ul>						
 						<div class="aus-stockists-search faq-search">
 							<form class="search" action="<?php echo home_url( '/' ); ?>">
 								<input type="search" name="s" placeholder="Search">
@@ -22,38 +24,34 @@ get_header();
 					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
-					<div class="">
-						<div class="searchform-wrap text-center">
-							<form id="postcodesearch" class="searchform postcodesearch">
-								<div>
-									<label for="postcode" class="hide-label">Search by postcode:</label>
-									<input type="text" name="name" placeholder="Search by postcode" class="searchfield" id="postcode" name="postcode" required/>
-									<button type="submit" value="Search" id="searchsubmit">
-										<svg version="1.1" class="icon-search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-											width="15px" height="15px" viewBox="0 0 15 15" enable-background="new 0 0 15 15" xml:space="preserve">
+					<div class="searchform-wrap text-center">
+						<form id="postcodesearch" class="searchform postcodesearch">
+								<!--label for="postcode" class="hide-label">Search by postcode:</label-->
+								<input type="text" name="name" placeholder="Search by postcode" class="searchfield" id="postcode" name="postcode" required/>
+								<button type="submit" value="Search" id="searchsubmit">
+									<svg version="1.1" class="icon-search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+										width="15px" height="15px" viewBox="0 0 15 15" enable-background="new 0 0 15 15" xml:space="preserve">
+										<g>
 											<g>
-												<g>
-													<path fill-rule="evenodd" clip-rule="evenodd" d="M14.18,12.637l-3.646-3.649c0.574-0.865,0.906-1.901,0.906-3.019
-														c0-3.022-2.447-5.474-5.469-5.474C2.949,0.495,0.5,2.946,0.5,5.969c0,3.024,2.449,5.476,5.471,5.476
-														c1.115,0,2.15-0.335,3.016-0.908l3.646,3.649c0.213,0.214,0.492,0.319,0.773,0.319c0.279,0,0.559-0.105,0.773-0.319
-														C14.607,13.758,14.607,13.064,14.18,12.637z M5.97,9.987c-2.214,0-4.016-1.803-4.016-4.019c0-2.215,1.802-4.018,4.016-4.018
-														c2.215,0,4.016,1.803,4.016,4.018C9.986,8.185,8.185,9.987,5.97,9.987z"/>
-												</g>
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M14.18,12.637l-3.646-3.649c0.574-0.865,0.906-1.901,0.906-3.019
+													c0-3.022-2.447-5.474-5.469-5.474C2.949,0.495,0.5,2.946,0.5,5.969c0,3.024,2.449,5.476,5.471,5.476
+													c1.115,0,2.15-0.335,3.016-0.908l3.646,3.649c0.213,0.214,0.492,0.319,0.773,0.319c0.279,0,0.559-0.105,0.773-0.319
+													C14.607,13.758,14.607,13.064,14.18,12.637z M5.97,9.987c-2.214,0-4.016-1.803-4.016-4.019c0-2.215,1.802-4.018,4.016-4.018
+													c2.215,0,4.016,1.803,4.016,4.018C9.986,8.185,8.185,9.987,5.97,9.987z"/>
 											</g>
-										</svg>
-									</button>
-								</div>
-							</form>
-						</div>
+										</g>
+									</svg>
+								</button>
+						</form>
 					</div>
-					<h2 class="stockists-ttl">Stockists in '<span id="displaypc">2000</span>'</h2>
+					<h6 class="stockists-ttl alt-heading"><strong>Stockists in '<span id="displaypc">2000</span>'</strong></h6>
 					<div id="stockistmap" style="height: 300px;" class="stockistmap"></div>
 					<?php
 					$stockists_country_terms = array();
 					$stockists_country_terms[] = get_term_by( "slug", "australian", "stockists_cat");
 					?>
 					<div class="row switch">
-						<div class="col-lg-5 columns">
+						<div class="col-md-4 columns pull-right">
 							<div class="data-stockist-details-wrap">
 								<?php
 								foreach ($stockists_country_terms as $key => $country_term)
@@ -95,34 +93,11 @@ get_header();
 											$stockist_stocking_terms = wp_get_post_terms($ID, 'stockist_stocking', array("fields" => "names"));
 											?>
 											<div class="data-stockist-details" data-stockist-id="<?php echo $Slug; ?>">
-												<h2 class="h3 ttl">
-													<?php echo $stockist_title; ?>
-													<?php
-													if(strtolower(trim($company_name)) != strtolower(trim($stockist_title)))
-													{
-														?>
-														<div><?php echo $company_name; ?></div>
-														<?php
-													}
-													?>
-												</h2>
+												<h6 class="alt-heading ttl">
+													<strong><?php echo $stockist_title; ?></strong>
+												</h6>
 												<address><?php echo nl2br($address); ?></address>
-												<p><?php echo $phone; ?><br></p>
-												<?php
-												if(!empty($company_website))
-												{
-													$company_website1 = $company_website;
-													$http_pos = strpos($company_website, "http:");
-													$https_pos = strpos($company_website, "https:");
-
-													if($http_pos === false && $https_pos === false)
-													{
-														$company_website1 = "http://".$company_website;
-													}
-													?>
-													<div><a href="<?php echo $company_website1; ?>" target="_blank"><?php echo $company_website; ?></a></div>
-													<?php
-												}?>
+												
 											</div>
 											<?php
 										endwhile;
@@ -131,7 +106,7 @@ get_header();
 								}?>
 							</div>
 						</div>
-						<div class="col-lg-7 columns pull-left">
+						<div class="col-md-8 columns pull-left">
 							<div id="stockist-list" class="stockist-list">
 								<?php
 								$markers = array();
@@ -153,7 +128,7 @@ get_header();
 										?>
 										<a href="<?php echo get_the_permalink(); ?>" class="data-stockist-btn" data-stockist-id="<?php echo $Slug; ?>" data-lat="<?php echo $company_location['lat'];?>" data-lng="<?php echo $company_location['lng'];?>">
 											<span class="ttl">
-												<span><?php echo $stockist_title; ?></span>
+												<strong><span><?php echo $stockist_title; ?></span></strong>
 												<span><?php echo @implode(" + ", $stockist_stocking_terms); ?></span>
 											</span>
 											<span class="subttl"><?php echo $company_city; ?></span>

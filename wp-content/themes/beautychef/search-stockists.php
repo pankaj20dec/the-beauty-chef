@@ -30,13 +30,16 @@ get_header(); ?>
 						if ( have_posts() ) :
 							/* Start the Loop */
 							while ( have_posts() ) : the_post();
-
-								/**
-								 * Run the loop for the search to output the results.
-								 * If you want to overload this in a child theme then include a file
-								 * called content-search.php and that will be used instead.
-								 */
-								get_template_part( 'template-parts/post/content', 'excerpt' );
+								$ID = $post->ID;	
+								$address = carbon_get_post_meta( $ID, 'crb_company_address' );
+								$stockist_title	= get_the_title();
+								?>
+								<h6 class="alt-heading ttl">
+									<strong><?php echo $stockist_title; ?></strong>
+								</h6>
+								<address><?php echo nl2br($address); ?></address>
+								
+								<?php
 
 							endwhile; // End of the loop.
 

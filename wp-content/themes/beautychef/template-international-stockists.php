@@ -10,7 +10,10 @@ get_header();
 			<div class="row clearfix">
 				<div class="col-md-3 col-sm-3">	
 					<div class="int-stockists-categories">
-						<h6>International:</h6>
+						<ul class="stockists-toggle">
+							<li><a href="<?php echo site_url(); ?>/australian-stockists">Australian</a></li>
+							<li class="active"><a href="<?php echo site_url(); ?>/international-stockists">International</a></li>
+						</ul>
 						<ul class="alt-sub-heading int-stockists-cat">
 							
 						<?php $term = get_term_by( 'slug', 'international', 'stockists_cat'); 
@@ -42,7 +45,7 @@ get_header();
 						$query = new WP_Query( array(
 							 'order'        => 'ASC',
 							 'post_type'    => 'stockists',
-							 'posts_per_page'  => 4,
+							 'posts_per_page'  => 35,
 							 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1),
 							 'tax_query' => array(
 								array(
@@ -66,17 +69,10 @@ get_header();
 								?>
 									<li class="int-stockists-box">
 										<div class="int-stockists-content">
-											<h5><?php the_title(); ?></h5>
+											<h5><strong><?php the_title(); ?></strong></h5>
 											<p>
 											<?php 
-											if(!empty($company_name)){ echo $company_name.'</br>';}
-											if(!empty($address)){ echo $address.'</br>';}
-											if(!empty($company_city)){ echo $company_city.'</br>';}
-											if(!empty($company_state)){ echo $company_state;}
-											if(!empty($company_zipcode)){echo $company_zipcode;}
-											echo '</br>';
-											if(!empty($phone)){ echo $phone.'</br>';}
-											if(!empty($company_website)){ echo $company_website;}
+											if(!empty($address)){ echo nl2br($address);}
 											?>
 											</p>
 										</div>
