@@ -1,7 +1,7 @@
 	<?php
 get_header(); ?>
 	<div class="container">
-		<h1 class="entry-title"><span><?php echo the_title(); ?></span></h1>
+		<h1 class="entry-title"><span><?php echo $current_category = single_cat_title("", false); ?></span></h1>
 		<div class="blog-cat-container">
 			<div class="row clearfix">
 				<div class="col-md-3 col-sm-3">	
@@ -29,6 +29,35 @@ get_header(); ?>
 									echo '</ul></li>';
 								} ?>
 						</ul>
+						<div class="blog-sort-by">	
+								<h6> sort by: </h6>
+								<?php
+									$year_prev = null;
+									$months = $wpdb->get_results("SELECT DISTINCT MONTH( post_date ) AS month ,
+															YEAR( post_date ) AS year,
+															COUNT( id ) as post_count FROM $wpdb->posts
+															WHERE post_status = 'publish' and post_date <= now( )
+															and post_type = 'post'
+															GROUP BY month , year
+															ORDER BY post_date DESC");
+									foreach($months as $month) :
+										$year_current = $month->year;
+										if ($year_current != $year_prev){
+											if ($year_prev != null){?>
+											</ul>
+											<?php }} ?>
+										<ul class="archive-list">
+											<li>
+												<a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>">
+													<span class="archive-month"><?php echo date("M", mktime(0, 0, 0, $month->month, 1, $month->year)) ?></span>
+													<span class="archive-year"><?php echo date("y", mktime(0, 0, 0, $month->month, 1, $month->year)) ?></span>
+												</a>
+											</li>
+											<li><?php echo $month->year; ?></li>
+										<?php $year_prev = $year_current;
+										endforeach; ?>
+									</ul>
+							</div>
 					</div>
 				</div>
 						<div class="col-md-9 col-sm-9">

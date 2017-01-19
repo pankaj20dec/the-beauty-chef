@@ -49,10 +49,21 @@
 							<h4 class="footer-title">connect</h4>
 							<div class="connect">
 								<div class="social-icons">
+									<?php 
+											$facebook_link =carbon_get_theme_option('crb_facebook_link'); 
+											$instagram_link =carbon_get_theme_option('crb_instagram_link'); 
+											$instagram_link =carbon_get_theme_option('crb_pinterest_link'); 
+										?>
 									<ul>
-										<li><a href="#"><?php echo beautychef_get_svg( array( 'icon' => 'facebook' ) );?></a></li>
-										<li><a href="#"><?php echo beautychef_get_svg( array( 'icon' => 'instagram' ) );?></a></li>
-										<li><a href="#"><?php echo beautychef_get_svg( array( 'icon' => 'pinterest-p' ) );?></a></li>
+										<?php if(!empty($facebook_link)){?>
+											<li><a href="<?php echo $facebook_link;?>"><?php echo beautychef_get_svg( array( 'icon' => 'facebook' ) );?></a></li>
+										<?php }?>
+										<?php if(!empty($instagram_link)){?>
+											<li><a href="<?php echo $instagram_link;?>"><?php echo beautychef_get_svg( array( 'icon' => 'instagram' ) );?></a></li>
+										<?php }?>
+										<?php if(!empty($instagram_link)){?>
+											<li><a href="<?php echo $instagram_link;?>"><?php echo beautychef_get_svg( array( 'icon' => 'pinterest-p' ) );?></a></li>
+										<?php }?>
 									</ul>
 								</div>
 							</div>

@@ -33,7 +33,10 @@ get_header(); ?>
 			<div class="container">
 				<div class="row clerfix">
 					<div class="col-sm-9 centered">
-						<?php $introText = get_field('intro_text');?>
+						<?php 
+						echo $pageID = get_option('page_on_front');
+						echo $blog_id = get_option('page_for_posts');
+						echo $introText = get_field('intro_text');?>
 						<h1> Bio-fermented whole food nutrition and probiotics of inner and outer beauty. Beauty begins in the belly. Living beauty from the inside out.</h1>
 					</div>
 				</div>

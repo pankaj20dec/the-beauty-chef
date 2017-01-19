@@ -8,7 +8,24 @@
  * @subpackage Beauty_Chef
  * @since 1.0
  */
+if ( ! function_exists( 'beautychef_custom_meta' ) ) :
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ */
+function beautychef_custom_meta() {
 
+	// Get the author name; wrap it in a link.
+	$byline = sprintf(
+		/* translators: %s: post author */
+		__( 'by %s', 'beautychef' ),
+		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>'
+	);
+
+	// Finally, let's write all of this to the page.
+	echo '<span class="posted-on">' . beautychef_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
+}
+endif;
+ 
 if ( ! function_exists( 'beautychef_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -35,7 +52,7 @@ if ( ! function_exists( 'beautychef_time_link' ) ) :
 function beautychef_time_link() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
@@ -48,7 +65,7 @@ function beautychef_time_link() {
 	// Wrap the time string in a link, and preface it with 'Posted on'.
 	return sprintf(
 		/* translators: %s: post date */
-		__( '<span class="screen-reader-text">Posted on</span> %s', 'beautychef' ),
+		__( '<span class="screen-reader-text"></span> %s', 'beautychef' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 }
@@ -73,7 +90,7 @@ function beautychef_entry_footer() {
 	// We don't want to output .entry-footer if it will be empty, so make sure its not.
 	if ( ( ( beautychef_categorized_blog() && $categories_list ) || $tags_list ) || get_edit_post_link() ) {
 
-		echo '<footer class="entry-footer">';
+		echo '<span class="entry-footer">';
 
 			if ( 'post' === get_post_type() ) {
 				if ( ( $categories_list && beautychef_categorized_blog() ) || $tags_list ) {
@@ -81,7 +98,7 @@ function beautychef_entry_footer() {
 
 						// Make sure there's more than one category before displaying.
 						if ( $categories_list && beautychef_categorized_blog() ) {
-							echo '<span class="cat-links">' . beautychef_get_svg( array( 'icon' => 'folder-open' ) ) . '<span class="screen-reader-text">' . __( 'Categories', 'beautychef' ) . '</span>' . $categories_list . '</span>';
+							echo '<span class="cat-links">' . $categories_list . '</span>';
 						}
 
 						if ( $tags_list ) {
@@ -92,9 +109,9 @@ function beautychef_entry_footer() {
 				}
 			}
 
-			beautychef_edit_link();
+			//beautychef_edit_link();
 
-		echo '</footer> <!-- .entry-footer -->';
+		echo '</span> <!-- .entry-footer -->';
 	}
 }
 endif;
