@@ -2,7 +2,7 @@
 get_header(); ?>
 	<div class="container">
 		<h1 class="entry-title"><span><?php echo the_title(); ?></span></h1>
-		<div class="blog-container">
+		<div class="blog-cat-container">
 			<div class="row clearfix">
 				<div class="col-md-3 col-sm-3">	
 					<div class="category_Section">
@@ -16,7 +16,7 @@ get_header(); ?>
 								$all_categories = get_categories( $get_parent_cats ); 
 								foreach( $all_categories as $single_category ){
 									$catID = $single_category->cat_ID;
-									echo '<li><a href=" ' . get_category_link( $catID ) . ' ">' . $single_category->name . '</a>'; 
+									echo '<li><a href="'. get_category_link( $catID ) .'">' . $single_category->name . '</a>'; 
 									$get_children_cats = array(
 										'child_of' => $catID 
 									);
@@ -24,7 +24,7 @@ get_header(); ?>
 									echo '<ul class="children">';
 										foreach( $child_cats as $child_cat ){
 											$childID = $child_cat->cat_ID;
-											echo '<li><a href=" ' . get_category_link( $childID ) . ' ">' . $child_cat->name . '</a></li>';
+											echo '<li><a href="'. get_category_link( $childID ) .'">' . $child_cat->name . '</a></li>';
 										}
 									echo '</ul></li>';
 								} ?>
@@ -51,7 +51,7 @@ get_header(); ?>
 														  <div class="content_Section_of_hormones text-center"> 
 																 <div class="common_heading_of_harmones"> <?php the_title();?> </div>
 																 <div class="common_paragaraph_of_harmones">
-																	<?php echo the_content(); ?>	
+																	<?php echo the_excerpt(); ?>	
 																</div>
 																 <div class="read_more_button"> <a href="<?php the_permalink();?>" class="btn read_more_button_link"> read more </a> </div>
 														  </div>

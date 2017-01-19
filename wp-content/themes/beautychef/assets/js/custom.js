@@ -19,6 +19,7 @@ $(document).ready(function(){
 	  itemSelector: '.grid-item',
 	  columnWidth: '.grid-sizer',
 	});
+	$('.blog-listing .grid-items').first().css({'marginTop': 135});
 	$('.blog-listing').masonry({
 	  itemSelector: '.grid-items',
 	  columnWidth: '.grid-sizers',
@@ -388,9 +389,12 @@ $(window).load(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 		}
 	});
-	$('.balancing_harmones').masonry({
-	  itemSelector: '.grid-items',
-	  columnWidth: '.grid-sizers',
+	$('.category-sidebar li').each(function(){
+		//alert(window.location.href.indexOf($(this).find('a').attr('href')));
+		if(window.location.href.indexOf($(this).find('a').attr('href')) > -1)
+		{
+			$(this).addClass('active').siblings().removeClass('active');
+		}
 	});
 	
 });

@@ -1358,7 +1358,9 @@ header{
 			font-family: $font-family_4;
 		}
 		&.active{
+			> a{
 			text-decoration: underline;
+			}
 		}
 		.children{
 			padding-left: 10px;
@@ -1374,19 +1376,18 @@ header{
 .archive-list{
 	font-family: $font-family_4;
 }
-.the_trove_content{
-	font-family: 'Didot';
+.blog-info {
+    box-sizing: border-box;
+    padding: 0 60px 0 20px;
+    position: absolute;
+    width: 50%;
+	font-family: $font-family_4;
+	font-style: italic;
 	color: $black;
-	font-size:12px;
-	font-style:italic;
+	font-size: 14px;
 	line-height: 1.714;
-	letter-spacing:0.1em;
-	font-weight:normal;
 	text-align:center;
-	padding: 0 22px;
-	width: 330px;
 }
-
 .skin_fix{
 	position:relative;
 }
@@ -1446,21 +1447,11 @@ padding:6px 25px;
 font-family: 'Didot';
 letter-spacing:0.1em;
 }
-
-
-
-/* ---- grid-item ---- */
-
-/* .grid:after {
-  content: '';
-  display: block;
-  clear: both;
+.blog-cat-container {
+    padding-top: 45px;
 }
- */
 
-.separate_content_part{
-	
-}
+
 
  
 /***************  Footer ***************/

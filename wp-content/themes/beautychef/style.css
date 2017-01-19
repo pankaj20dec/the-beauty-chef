@@ -1350,7 +1350,7 @@ header.site-header.fixed .logo img {
 .category-sidebar li a {
   font-family: "Didot";
 }
-.category-sidebar li.active {
+.category-sidebar li.active > a {
   text-decoration: underline;
 }
 .category-sidebar li .children {
@@ -1369,17 +1369,17 @@ header.site-header.fixed .logo img {
   font-family: "Didot";
 }
 
-.the_trove_content {
-  font-family: 'Didot';
-  color: #000000;
-  font-size: 12px;
+.blog-info {
+  box-sizing: border-box;
+  padding: 0 60px 0 20px;
+  position: absolute;
+  width: 50%;
+  font-family: "Didot";
   font-style: italic;
+  color: #000000;
+  font-size: 14px;
   line-height: 1.714;
-  letter-spacing: 0.1em;
-  font-weight: normal;
   text-align: center;
-  padding: 0 22px;
-  width: 330px;
 }
 
 .skin_fix {
@@ -1444,13 +1444,10 @@ header.site-header.fixed .logo img {
   letter-spacing: 0.1em;
 }
 
-/* ---- grid-item ---- */
-/* .grid:after {
-  content: '';
-  display: block;
-  clear: both;
+.blog-cat-container {
+  padding-top: 45px;
 }
- */
+
 /***************  Footer ***************/
 .border-right {
   border-right: 1px solid #000000;

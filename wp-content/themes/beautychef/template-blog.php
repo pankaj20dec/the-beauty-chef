@@ -3,10 +3,11 @@
  *	Template Name: Blog Page	
  */
 
-get_header(); ?>
-
+get_header(); 
+	if ( have_posts() ) : while ( have_posts() ) : the_post();
+?>
 <div class=" container the_kit"> 
-     <h1 class="entry-title"><span><?php echo the_title(); ?></span></h1>
+     <h1 class="entry-title"><span><?php echo the_title(); ?></span></h1> 
 </div>
  
 	<div class="container"> 
@@ -16,7 +17,7 @@ get_header(); ?>
 				  <div class="category_Section"> 
 					   <h6> categories:</h6>
 						  <ul class="category-sidebar"> 
-								<li class="active"><a href="<?php echo site_url();?>/the-kit">all</a></li>
+								<li class="cat active"><a href="<?php echo site_url();?>/the-kit">all</a></li>
 								<?php 
 									$get_parent_cats = array(
 										'parent' => '0'
@@ -24,7 +25,7 @@ get_header(); ?>
 									$all_categories = get_categories( $get_parent_cats ); 
 									foreach( $all_categories as $single_category ){
 										$catID = $single_category->cat_ID;
-										echo '<li><a href=" ' . get_category_link( $catID ) . ' ">' . $single_category->name . '</a>'; 
+										echo '<li><a href="'. get_category_link( $catID ) . '">' . $single_category->name . '</a>'; 
 										$get_children_cats = array(
 											'child_of' => $catID 
 										);
@@ -32,7 +33,7 @@ get_header(); ?>
 										echo '<ul class="children">';
 											foreach( $child_cats as $child_cat ){
 												$childID = $child_cat->cat_ID;
-												echo '<li><a href=" ' . get_category_link( $childID ) . ' ">' . $child_cat->name . '</a></li>';
+												echo '<li><a href="'. get_category_link( $childID ) . '">' . $child_cat->name . '</a></li>';
 											}
 										echo '</ul></li>';
 									} ?>
@@ -77,14 +78,16 @@ get_header(); ?>
 					</div>
 					<div class="col-sm-9"> 
 						<div class="row clearfix">
+							<div class="blog-info">
+									<?php the_content();?> 
+							</div>
 							 <div class="blog-listing">
 								<div class="grid-sizers"> </div>
-									 
 									<?php 
 									$query = new WP_Query( array(
 										 'order'        => 'DESC',
 										 'post_type'    => 'post',
-										 'posts_per_page'  => 2,
+										 'posts_per_page'  => 3,
 										 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1)
 									  ));
 										if ( $query->have_posts() ) :
@@ -111,10 +114,10 @@ get_header(); ?>
 										   </div>									   									  				   
 									   </div>
 								<?php  endwhile;
+								wp_reset_postdata();
 							else : 
 								_e( 'Nothing published so far.');
 							endif; 
-						wp_reset_query();
 						?>
 					</div>
 				
@@ -136,4 +139,5 @@ get_header(); ?>
 	if (function_exists("pagination")) {
 		pagination($query->max_num_pages);
 	} 
+endwhile; endif;
 get_footer();
