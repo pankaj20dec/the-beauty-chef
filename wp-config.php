@@ -20,16 +20,34 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wp_the_beauty_chef');
+if(trim($_SERVER['SERVER_NAME']) == 'localhost')
+{
+	define('DB_NAME', 'wp_the_beauty_chef');
 
-/** MySQL database username */
-define('DB_USER', 'root');
+	/** MySQL database username */
+	define('DB_USER', 'root');
 
-/** MySQL database password */
-define('DB_PASSWORD', '');
+	/** MySQL database password */
+	define('DB_PASSWORD', '');
 
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
+	/** MySQL hostname */
+	define('DB_HOST', 'localhost');
+}
+else
+{
+	/** The name of the database for WordPress */
+	define('DB_NAME', 'smackba8_the_beauty_chef');
+
+	/** MySQL database username */
+	define('DB_USER', 'smackba8_built_p');
+
+	/** MySQL database password */
+	define('DB_PASSWORD', 'D3v20!6');
+
+	/** MySQL hostname */
+	define('DB_HOST', 'localhost');
+
+}
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');

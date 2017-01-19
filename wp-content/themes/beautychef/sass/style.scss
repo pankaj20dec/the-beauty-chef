@@ -1334,7 +1334,135 @@ header{
     letter-spacing: 0.2em;
     text-transform: uppercase;
 	margin-bottom: 10px;
- }	
+ }
+
+/******************* Blog Page *********************/
+
+/** blog page goes here ***/
+.grid-sizers,
+.grid-items {
+  width: 50%; 
+  margin-bottom: 70px;
+}
+.grid-sizers{
+	margin: 0;
+}
+
+
+.the_kit{
+	padding-bottom: 45px;
+}
+.category-sidebar{
+	li{
+		a{
+			font-family: $font-family_4;
+		}
+		&.active{
+			text-decoration: underline;
+		}
+		.children{
+			padding-left: 10px;
+		}
+	}
+}
+.blog-search{
+	padding-top: 20px;
+}
+.blog-sort-by {
+    padding-top: 5px;
+}
+.archive-list{
+	font-family: $font-family_4;
+}
+.the_trove_content{
+	font-family: 'Didot';
+	color: $black;
+	font-size:12px;
+	font-style:italic;
+	line-height: 1.714;
+	letter-spacing:0.1em;
+	font-weight:normal;
+	text-align:center;
+	padding: 0 22px;
+	width: 330px;
+}
+
+.skin_fix{
+	position:relative;
+}
+.skin_fix .mgt-6{
+	margin-top:6px;
+}
+
+.rotation_text{
+position: absolute;
+font-family: 'Didot';
+color: #000000;
+font-size: 12px;
+line-height: 1.714;
+letter-spacing: 0.100em;
+font-style: italic;
+-webkit-transform: rotate(-90deg) translateY(-45px);
+-moz-transform: rotate(-90deg) translateY(-45px);
+-ms-transform: rotate(-90deg) translateY(-45px);
+transform: rotate(-90deg) translateY(-45px);
+-webkit-transform-origin: 100% 0 0;
+-moz-transform-origin: 100% 0 0;
+-ms-transform-origin: 100% 0 0;
+transform-origin: 100% 0 0;
+white-space: nowrap;
+bottom: 50%;
+right: 0;
+}
+
+.rotation_text-2{
+    bottom: 84%;
+}
+
+.content_Section_of_hormones{
+	width:329px;
+}
+
+.common_heading_of_harmones{	
+  font-family: 'Archer-Book';
+  color: #000000;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+    padding: 22px 0 13px;
+} 
+.common_paragaraph_of_harmones{
+font-family: 'ProximaNova-Light';
+color: #000000;
+font-size: 12px;
+line-height: 1.714;
+padding-bottom:10px;
+padding: 0 30px;
+}
+
+.read_more_button_link{
+padding:6px 25px;
+font-family: 'Didot';
+letter-spacing:0.1em;
+}
+
+
+
+/* ---- grid-item ---- */
+
+/* .grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+ */
+
+.separate_content_part{
+	
+}
+
+ 
 /***************  Footer ***************/
 footer{
 	@at-root .border-right{

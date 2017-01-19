@@ -393,6 +393,7 @@ function beautychef_scripts() {
 	wp_enqueue_script( 'jquery-bootstrap', get_theme_file_uri( '/assets/js/bootstrap.min.js' ), array(), true );
 	wp_enqueue_script( 'jquery-bxslider', get_theme_file_uri( '/assets/js/bxslider.min.js' ), array(), true );
 	wp_enqueue_script( 'jquery-owl-carousel', get_theme_file_uri( '/assets/js/owl.carousel.min.js' ), array(), true );
+	wp_enqueue_script( 'jquery-image-loaded', get_theme_file_uri( '/assets/js/imagesloaded.pkgd.min.js' ), array(), true );
 	wp_enqueue_script('jquery-masonry');
 	wp_enqueue_script( 'jquery-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), true );
 
@@ -570,4 +571,3 @@ function posts_link_attributes_1() {
 function posts_link_attributes_2() {
     return 'class="prev-post"';
 }
-

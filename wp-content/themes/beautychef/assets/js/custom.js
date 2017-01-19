@@ -19,6 +19,14 @@ $(document).ready(function(){
 	  itemSelector: '.grid-item',
 	  columnWidth: '.grid-sizer',
 	});
+	$('.blog-listing').masonry({
+	  itemSelector: '.grid-items',
+	  columnWidth: '.grid-sizers',
+	});
+	$('.blog-cat').masonry({
+	  itemSelector: '.grid-items',
+	  columnWidth: '.grid-sizers',
+	});
 	$('.top-menu a').click(function(){
 		$('.navigation-top').addClass('active');	
 	});
@@ -174,6 +182,51 @@ $(document).ready(function(){
 		}
 	}
 	
+	// Blog 
+	 if($('.blog-listing').length){
+		 if($('.next-prev li a').find('.next-post')){
+			//console.log('have next');
+			 var pageLength = $('.page-numbers li').length;
+			 //console.log(pageLength);		
+			 var pageNum = 2;
+				 $('.next-prev .next-post').click(function(e){
+					 e.preventDefault();
+					 var numPlus = pageNum++;
+					 if( numPlus <= pageLength){
+						 var href = $(this).attr('href');
+						 var targetLink = href.split("/");
+						// Substring length
+						 var tLength = targetLink.length;
+						 // change page value
+						 targetLink[tLength - 2] = numPlus;
+						// New link	with new page
+						 var newTarget = targetLink.join('/');
+						 console.log('newTarget:'+ newTarget);
+						 $('.loader-img').show();
+						  $.ajax({
+							url : newTarget,
+							type: 'POST',
+							dataType: "html",
+							error: function(response){
+							},
+							success: function(response){
+								 console.log(response);
+								 var result = $('<div />').append(response).find('.blog-listing').html();
+								var $tresult = $('.blog-listing').append(result);
+								$tresult.imagesLoaded();
+								setTimeout(function(){ $tresult.masonry('reload') }, 0);
+								$('.loader-img').hide();
+							}
+						});   
+						
+					}else{
+						$('.next-prev').html("<li class='no-more'>no more blogs</li>");
+					}
+			});
+		}
+	}
+	
+	
 	// International Stockists
 	 if($('.int-stockists-ul').length){
 		 if($('.next-prev li a').find('.next-post')){
@@ -252,6 +305,47 @@ $(document).ready(function(){
 			});
 		}
 	 }
+	 
+	 // category filter load more	
+	 if($('.blog-cat').length){
+		  if($('.category-loadmore li a').find('.next-post')){
+			 var pageLength = $('.nav-links a').length;
+			 console.log(pageLength);		
+			 var pageNum = 2;
+				 $('.category-loadmore .next-post').click(function(e){
+					 e.preventDefault();
+					 var numPlus = pageNum++;
+					 if( numPlus <= pageLength){
+						 var href = $(this).attr('href');
+						 var targetLink = href.split("/");
+						// Substring length
+						 var tLength = targetLink.length;
+						 // change page value
+						 targetLink[tLength - 2] = numPlus;
+						// New link	with new page
+						 var newTarget = targetLink.join('/');
+						 console.log('newTarget:'+ newTarget);
+						  $.ajax({
+							url : newTarget,
+							type: 'POST',
+							dataType: "html",
+							error: function(response){
+							},
+							success: function(response){
+								 console.log(response);
+								 var result = $('<div />').append(response).find('.blog-cat').html();
+								var $tresult = $('.blog-cat').append(result);
+								$tresult.imagesLoaded();
+								setTimeout(function(){ $tresult.masonry('reload') }, 0);
+							}
+						});   
+						
+					}else{
+						$('.category-loadmore').html("<p class='no-more'>no more blog	</p>");
+					}
+			});
+		}
+	 }
 	// Scroll Top click event
 	$('.scroll-top a').click(function(e){
 		e.preventDefault();
@@ -293,6 +387,10 @@ $(window).load(function(){
 		{
 			$(this).addClass('active').siblings().removeClass('active');
 		}
+	});
+	$('.balancing_harmones').masonry({
+	  itemSelector: '.grid-items',
+	  columnWidth: '.grid-sizers',
 	});
 	
 });
