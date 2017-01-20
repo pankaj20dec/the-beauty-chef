@@ -1,5 +1,6 @@
 <?php
 // Recipe Custom Post
+/*
 function recipe_post() {
 	register_post_type( 'recipes',
 		array(
@@ -26,6 +27,7 @@ function recipe_post() {
 	);
 }
 add_action( 'init', 'recipe_post' );
+*/
 
 // Testimonial Custom Post
 function testimonial_post() {
@@ -167,7 +169,7 @@ function stockists_post() {
 add_action( 'init', 'stockists_post' );
 
 // Recipe taxonomy
-function recipes_init() {
+/*function recipes_init() {
 	register_taxonomy(
 		'recipes_cat',
 		'recipes',
@@ -179,7 +181,7 @@ function recipes_init() {
 	);
 }
 add_action( 'init', 'recipes_init' );
-
+*/
 
 // Press taxonomy
 function press_init() {

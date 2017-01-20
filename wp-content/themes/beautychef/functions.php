@@ -29,6 +29,8 @@ function beautychef_setup() {
 	add_image_size( 'team-member-img', 230, 290, true );
 	add_image_size( 'naturopath-img', 202, 300, true );		
 	add_image_size( 'press-img', 237, 319, true );
+	add_image_size( 'blog-left-img', 500, 680, true );
+	add_image_size( 'blog-vertical-img', 484, 656, true );
 	add_image_size( 'banner-img', 1920, 270, true );
 
 	// This theme uses wp_nav_menu() in two locations.
@@ -53,7 +55,7 @@ function beautychef_setup() {
 	 *
 	 * See: https://codex.wordpress.org/Post_Formats
 	 */
-	add_theme_support( 'post-formats', array(
+	/*add_theme_support( 'post-formats', array(
 		'aside',
 		'image',
 		'video',
@@ -61,7 +63,7 @@ function beautychef_setup() {
 		'link',
 		'gallery',
 		'audio',
-	) );
+	) );*/
 
 	// Add theme support for Custom Logo.
 	add_theme_support( 'custom-logo', array(
@@ -571,3 +573,15 @@ function posts_link_attributes_1() {
 function posts_link_attributes_2() {
     return 'class="prev-post"';
 }
+// Move comment message field
+function smoke_move_comment_field_to_bottom( $fields ) {
+	unset($fields[ 'url']);
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
+    return $fields;
+}
+add_filter( 'comment_form_fields', 'smoke_move_comment_field_to_bottom' );
+
+
+
