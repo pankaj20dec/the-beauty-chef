@@ -27,7 +27,12 @@
 				   <div class="slider_img_first"> 
 					 <a href="<?php the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail(); ?></a>
 				   </div> 
-				   <div class="rotation_text rotation_text-3"> <?php the_time('M j, Y'); ?>    //     category 1</div>
+				   <div class="rotation_text rotation_text-3"> <span class="blog-date"><?php the_time('m.y'); ?></span>
+						<?php $categories = get_the_category();
+								if ( ! empty( $categories ) ) {
+								echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+						} ?>  
+					</div>
 					<div class="slider_img_content">
 						  <div class="content_Section_of_hormones text-center wt-4"> 
 								 <div class="common_heading_of_harmones"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></div>

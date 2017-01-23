@@ -378,12 +378,17 @@ $(document).ready(function(){
 			$(this).parent().siblings().find('.answer').slideUp(500);
 		 }
 	 });
+	 
 	
 
 $('.owl-carousel').owlCarousel({
 		loop: false,
+		lazyLoad : true,
 		items: 3,
-		
+		onInitialized: function(property){
+			var current = property.item.index;
+			$(property.target).find(".owl-item .slip_hyegine_slider").eq(current+1).addClass("feature");
+      }
 	});
 	owl = $('.owl-carousel').owlCarousel();
 	$(".leftarrow-direction").click(function () {
@@ -396,7 +401,7 @@ $('.owl-carousel').owlCarousel({
 
 	owl.on('changed.owl.carousel', function(property){
 		var current = property.item.index;
-		console.log(current+1);
+		//console.log(current+1);
 		$(".owl-item .slip_hyegine_slider").removeClass("feature");
 		$(property.target).find(".owl-item .slip_hyegine_slider").eq(current+1).addClass("feature");
 		//window.location.hash = currentItem + 1;

@@ -59,7 +59,7 @@
 				<div class="row clearfix layout-one">
 					<div class="col-md-6 col-sm-6">
 						<div class="post-image">
-						   <img src="<?php echo $blog_image_id['sizes'][$size]; ?>" alt="<?php the_title();?>" />	
+						   <img src="<?php echo $blog_image_id['url']; ?>" alt="<?php the_title();?>" />	
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">

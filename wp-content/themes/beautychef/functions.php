@@ -29,9 +29,11 @@ function beautychef_setup() {
 	add_image_size( 'team-member-img', 230, 290, true );
 	add_image_size( 'naturopath-img', 202, 300, true );		
 	add_image_size( 'press-img', 237, 319, true );
-	add_image_size( 'blog-left-img', 500, 680, true );
+	add_image_size( 'blog-left-img', 580, 780, true );
 	add_image_size( 'blog-vertical-img', 484, 656, true );
 	add_image_size( 'banner-img', 1920, 270, true );
+	add_image_size( 'home-bottom-banner-img', 755, 355, true );
+	add_image_size( 'find-match-image', 328, 328, true );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(

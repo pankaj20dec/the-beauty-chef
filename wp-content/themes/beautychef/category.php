@@ -74,8 +74,13 @@ get_header(); ?>
 														  <div class="skin_fix"> 
 															   <div class="glowing_harmones_images"> 
 																   <?php the_post_thumbnail(); ?>
-															   </div>
-															   <div class="rotation_text"> 06.16     //     beauty & health</div>
+															  <div class="rotation_text"> <span class="blog-date"><?php the_time('m.y'); ?></span> 
+															   <?php $categories = get_the_category();
+																	if ( ! empty( $categories ) ) {
+																		echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
+																} ?>    
+															</div>
+															</div>
 														  </div>
 														  <div class="content_Section_of_hormones text-center"> 
 																 <div class="common_heading_of_harmones"> <?php the_title();?> </div>

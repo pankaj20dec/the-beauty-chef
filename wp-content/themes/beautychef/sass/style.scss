@@ -43,10 +43,9 @@ h3{
 }
 h4{
 	font-family: $font-family_3;
-	font-size: 16px;
-	line-height: 1.25;
-	letter-spacing: 0.100em;
-	margin: 15px 0 18px;
+	font-size: 18px;
+	line-height: 1.66;
+	margin: 5px 0 18px;
 	/* text-transform: uppercase; */
 }
 h5{
@@ -310,8 +309,8 @@ header{
 		background: $cream_grey;
 		position: absolute;
 		left: -180px;
-		margin-top: 25px;
-		padding: 25px 25px 15px 0;
+		margin-top: 5px;
+		padding: 0 15px 15px 0;
 		transition: left 0.4s ease-in;
 		.wrap{
 			margin-left: 18px ;
@@ -597,6 +596,9 @@ header{
 			font-style: italic;
 		}	
 	}
+}
+.home-testimonial .item{
+	margin: 35px 0;
 }
 /********** Common pages ***************/
 
@@ -1423,26 +1425,28 @@ header{
 .skin_fix .mgt-6{
 	margin-top:6px;
 }
-
+.glowing_harmones_images{
+	position: relative;
+}
 .rotation_text{
-position: absolute;
-font-family: 'Didot';
-color: #000000;
-font-size: 12px;
-line-height: 1.714;
-letter-spacing: 0.100em;
-font-style: italic;
--webkit-transform: rotate(-90deg) translateY(-45px);
--moz-transform: rotate(-90deg) translateY(-45px);
--ms-transform: rotate(-90deg) translateY(-45px);
-transform: rotate(-90deg) translateY(-45px);
--webkit-transform-origin: 100% 0 0;
--moz-transform-origin: 100% 0 0;
--ms-transform-origin: 100% 0 0;
-transform-origin: 100% 0 0;
-white-space: nowrap;
-bottom: 50%;
-right: 0;
+	position: absolute;
+	font-family: 'Didot';
+	color: #000000;
+	font-size: 12px;
+	line-height: 1.714;
+	letter-spacing: 0.100em;
+	font-style: italic;
+	-webkit-transform: rotate(-90deg) translateY(-45px);
+	-moz-transform: rotate(-90deg) translateY(-45px);
+	-ms-transform: rotate(-90deg) translateY(-45px);
+	transform: rotate(-90deg) translateY(-45px);
+	-webkit-transform-origin: 100% 0 0;
+	-moz-transform-origin: 100% 0 0;
+	-ms-transform-origin: 100% 0 0;
+	transform-origin: 100% 0 0;
+	white-space: nowrap;
+	bottom: 50%;
+	right: 0;
 }
 
 .rotation_text-2{
@@ -1838,7 +1842,27 @@ body.page-template-template-blog-details-page3 .owl-nav{
  .product_details_content {
     margin-top: 25px;
 }
- 
+ .blog-date::after {
+    content: "//";
+    padding: 10px;
+}
+
+/************ Woocommerce ********************/
+.woocommerce ul.products li.product a img,.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images{
+	width: auto;
+}
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    display: inline-block;
+    float: none;
+    padding: 0;
+    position: relative;
+    width: 21.8%;
+}
+.shop-cat{
+	a{
+		text-transform: lowercase;
+	}
+}
 /***************  Footer ***************/
 footer{
 	@at-root .border-right{
@@ -1847,6 +1871,8 @@ footer{
 	.footer-title{
 		margin-top: 25px;
 		text-transform: uppercase;
+		font-size: 16px;
+		letter-spacing: 0.100em;
 	}
 	.footer-info{
 		padding: 85px 0;

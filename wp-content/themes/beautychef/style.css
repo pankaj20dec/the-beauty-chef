@@ -91,10 +91,9 @@ h3, .quote {
 
 h4 {
   font-family: "Archer-Book";
-  font-size: 16px;
-  line-height: 1.25;
-  letter-spacing: 0.100em;
-  margin: 15px 0 18px;
+  font-size: 18px;
+  line-height: 1.66;
+  margin: 5px 0 18px;
   /* text-transform: uppercase; */
 }
 
@@ -358,8 +357,8 @@ header .navigation-top {
   background: #fafafa;
   position: absolute;
   left: -180px;
-  margin-top: 25px;
-  padding: 25px 25px 15px 0;
+  margin-top: 5px;
+  padding: 0 15px 15px 0;
   transition: left 0.4s ease-in;
 }
 header .navigation-top .wrap {
@@ -626,6 +625,10 @@ header.site-header.fixed .logo img {
   margin-top: 30px;
   font-family: "Didot";
   font-style: italic;
+}
+
+.home-testimonial .item {
+  margin: 35px 0;
 }
 
 /********** Common pages ***************/
@@ -1418,6 +1421,10 @@ header.site-header.fixed .logo img {
   margin-top: 6px;
 }
 
+.glowing_harmones_images {
+  position: relative;
+}
+
 .rotation_text {
   position: absolute;
   font-family: 'Didot';
@@ -1834,6 +1841,28 @@ body.page-template-template-blog-details-page3 .owl-nav {
   margin-top: 25px;
 }
 
+.blog-date::after {
+  content: "//";
+  padding: 10px;
+}
+
+/************ Woocommerce ********************/
+.woocommerce ul.products li.product a img, .woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+  width: auto;
+}
+
+.woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+  display: inline-block;
+  float: none;
+  padding: 0;
+  position: relative;
+  width: 21.8%;
+}
+
+.shop-cat a {
+  text-transform: lowercase;
+}
+
 /***************  Footer ***************/
 .border-right {
   border-right: 1px solid #000000;
@@ -1841,6 +1870,8 @@ body.page-template-template-blog-details-page3 .owl-nav {
 footer .footer-title {
   margin-top: 25px;
   text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.100em;
 }
 footer .footer-info {
   padding: 85px 0;
